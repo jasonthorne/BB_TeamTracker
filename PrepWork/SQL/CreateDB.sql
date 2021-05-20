@@ -41,7 +41,6 @@ CREATE TABLE players (
 	playerID INT NOT NULL AUTO_INCREMENT,
 	leagueID INT,
 	userID INT,
-	/*score INT DEFAULT 0,  ???????????*/ 
 	is_active BOOLEAN DEFAULT TRUE,
 	created DATETIME,
 	PRIMARY KEY (playerID),
