@@ -15,12 +15,11 @@ public final class ConnectDB {
 	//constructor connects to DB using properties file:
 	private ConnectDB() { 
 		
-		try { /** ++++++++++++++++++++++++++++++++look at making this a singleton instead!! :P ++++++++++ */
+		try { 
 			//load properties:
 			Properties properties = new Properties();	
 			properties.load(new FileInputStream("./configs/mysql/db_configs/db_configs.properties"));
-			/////////properties.load(new FileInputStream(Paths.DB_CONFIGS)); /** ++++++++++WORKS BUT NOT NEEDED FOR DB. GOOD FOR FXML PATHS THOUGH!
-		
+			
 			//get connection using properties: 
 			this.connection = DriverManager.getConnection(
 					properties.getProperty("db_url"),
@@ -31,5 +30,5 @@ public final class ConnectDB {
 	}
 	
 	//return a newly established connection:
-	static Connection getConnection() { return new ConnectDB().connection; }
+	public static Connection getConnection() { return new ConnectDB().connection; } //++++++++++++REMOVE PUBLIC +++++++
 }
