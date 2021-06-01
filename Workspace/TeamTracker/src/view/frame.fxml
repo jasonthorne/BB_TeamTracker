@@ -4,26 +4,34 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="rootBP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <bottom>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="footerAP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="248.0" layoutY="8.0" style="-fx-background-color: grey;" text="Back" />
-            <JFXButton layoutX="312.0" layoutY="8.0" style="-fx-background-color: grey;" text="Fwrd" textAlignment="CENTER" />
+            <JFXButton fx:id="backBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="248.0" layoutY="8.0" style="-fx-background-color: grey;" text="Back" />
+            <JFXButton fx:id="fwrdBtn" layoutX="312.0" layoutY="8.0" style="-fx-background-color: grey;" text="Fwrd" textAlignment="CENTER" />
          </children></AnchorPane>
    </bottom>
    <top>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: pink;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="headerAP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: pink;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="281.0" layoutY="5.0" text="Title">
+            <Label fx:id="viewLbl" alignment="CENTER" layoutX="110.0" layoutY="6.0" prefHeight="30.0" prefWidth="380.0" text="View Title" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXButton layoutX="515.0" layoutY="8.0" style="-fx-background-color: white;" text="notify" />
+            <JFXButton fx:id="notifyBtn" layoutX="526.0" layoutY="9.0" style="-fx-background-color: white;" text="notify" />
          </children>
       </AnchorPane>
    </top>
+   <center>
+      <StackPane fx:id="bodySP" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="bodyAP" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue;" />
+         </children>
+      </StackPane>
+   </center>
 </BorderPane>
