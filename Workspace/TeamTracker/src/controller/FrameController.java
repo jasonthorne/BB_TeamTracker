@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import view.ViewPath;
 
 public class FrameController implements Rootable {
 	
@@ -25,7 +26,7 @@ public class FrameController implements Rootable {
     
     @FXML
     void initialize() {
-        
+    
     }
     
     private final Stage stage = new Stage(); //stage
@@ -37,7 +38,7 @@ public class FrameController implements Rootable {
     //private constructor for singleton reference:
     private FrameController(){
     	///////loginCtrlr = new LoginController(); //instantiate login controller
-    	scene = new Scene(Rootable.getRoot(this, "/view/frame.fxml")); //add root to scene
+    	scene = new Scene(Rootable.getRoot(this, ViewPath.FRAME_FXML)); //add root to scene
     	stage.setScene(scene); //add scene to stage
     }
     
