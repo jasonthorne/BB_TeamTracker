@@ -39,6 +39,6 @@ public class LoginController implements Rootable, Frameable{
 	@Override
 	public Parent getRoot() {return root;} //get root
 	@Override
-	public String getViewTitle() {return view.getTitle();} //get view title
+	public String getViewTitle() {return null; /*view2.getTitle();*/} //get view2 title
 
 }
