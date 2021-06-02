@@ -6,8 +6,8 @@ import java.util.Optional;
 
 public enum View {
 	
-	FRAME_FXML("frame.fxml"),
-	LOGIN_FXML("login.fxml", "Login");
+	FRAME("frame.fxml"),
+	LOGIN("login.fxml", "Login");
 	
 	//path:
 	private String path = "/"

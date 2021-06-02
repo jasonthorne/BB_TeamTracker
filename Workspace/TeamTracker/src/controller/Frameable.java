@@ -3,7 +3,6 @@ package controller;
 import java.util.Optional;
 
 import javafx.scene.Parent;
-import view.View;
 
 /** serves controller classes who's views are displayed by adding their root nodes to frame.fxml */
 
@@ -19,7 +18,7 @@ public interface Frameable {
 	//////abstract void setRoot(); needed?????????
 	abstract Parent getRoot();
 	
-	//force optional title getter:
+	//force title getter:
 	abstract Optional<String> getOptTitle();
 	
 }

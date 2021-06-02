@@ -29,7 +29,7 @@ public class FrameController implements Rootable {
     
     @FXML
     void initialize() {
-  
+    	
     	//show login view:
     	showFrameable(loginCtrlr);
     }
@@ -45,7 +45,7 @@ public class FrameController implements Rootable {
     //private constructor for singleton reference:
     private FrameController(){
     	loginCtrlr = new LoginController(); //instantiate login controller
-    	scene = new Scene(Rootable.getRoot(this, View.FRAME_FXML.getPath())); //add root to scene
+    	scene = new Scene(Rootable.getRoot(this, View.FRAME.getPath())); //add root to scene
     	stage.setScene(scene); //add scene to stage
     }
     
@@ -59,13 +59,14 @@ public class FrameController implements Rootable {
     //show stage:
     public void showStage() { stage.showAndWait(); }
     
+    //show frameable's view:
     private void showFrameable(Frameable frameable) {
-    	
-    	//replace bodyAP's children with framable's root:
-    	bodyAP.getChildren().setAll(frameable.getRoot());
     	
     	//set label with frameable's title if present:
     	if(frameable.getOptTitle().isPresent()) {
-    		titleLbl.setText(frameable.getOptTitle().get()); }
+    		titleLbl.setText(frameable.getOptTitle().get());}
+    	
+    	//replace bodyAP's children with framable's root:
+    	bodyAP.getChildren().setAll(frameable.getRoot());
     }
 }

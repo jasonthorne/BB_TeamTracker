@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 import com.jfoenix.controls.JFXButton;
@@ -21,24 +22,42 @@ public class LoginController implements Rootable, Frameable{
     
     @FXML
     void initialize() {
+    	//set btn actions:
+		loginBtn.setOnAction(event -> loginUser());
     }
     
     
   	//constructor:
-  	LoginController() {
+  	LoginController() { /////??????????needed?????
   		
   	}
+  	
+  	private void loginUser() {
+  		
+	  	//trim name & password fields:
+		String name = nameTxtFld.getText().trim();
+		String password = pswrdTxtFld.getText().trim();
+		
+		//if fields aren't empty: 
+		if(!name.equals("") && !password.equals("")) {
+			
+		}else { // a field was blank:
+			System.out.println("no dice, punk!");
+		} 
+  		
+  	}
+  	
 
   	/** from Frameable: */
   	@Override
   	public Parent getRoot() {
   		//return root fxml element of view, with this set as it's controller:
-  		return Rootable.getRoot(this, View.LOGIN_FXML.getPath()); //get root
+  		return Rootable.getRoot(this, View.LOGIN.getPath()); //get root
   	}
   	
 	@Override
 	public Optional<String> getOptTitle() {
-		return View.LOGIN_FXML.getOptTitle(); //return optional view title
+		return View.LOGIN.getOptTitle(); //return optional view title
 	}
 	
 }
