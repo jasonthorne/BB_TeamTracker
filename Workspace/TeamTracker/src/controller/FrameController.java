@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -59,7 +60,7 @@ public final class FrameController implements Rootable {
         return singleFrameCtrlr; 
     }
   	
-    //show stage, if not shown:
+    //show stage (if not):
     public void showStage() {
     	if(!stage.isShowing()){stage.showAndWait();}
     }
@@ -76,7 +77,7 @@ public final class FrameController implements Rootable {
     }
     
     
-    void showAlert(String heading, String message) {
+    void showDialog(String heading, String message) {
     	
     	JFXDialogLayout layout = new JFXDialogLayout();
         layout.setHeading(new Label(heading));
@@ -84,10 +85,10 @@ public final class FrameController implements Rootable {
         JFXDialog dialog = new JFXDialog(dialogSP, layout, JFXDialog.DialogTransition.CENTER);
         dialog.show();
     }
+    
+    StackPane getDialogSP() {
+    	return this.dialogSP;
+    }
    
-}
-
-enum Alert {
-	
 }
 

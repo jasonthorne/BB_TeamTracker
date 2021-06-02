@@ -32,11 +32,7 @@
             </AnchorPane>
          </top>
          <center>
-            <StackPane fx:id="bodySP" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane fx:id="bodyAP" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue;" />
-               </children>
-            </StackPane>
+            <AnchorPane fx:id="bodyAP" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue;" />
          </center>
       </BorderPane>
    </children>

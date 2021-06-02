@@ -4,11 +4,14 @@ import java.util.Arrays;
 import java.util.Optional;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import view.View;
 
@@ -43,7 +46,19 @@ public class LoginController implements Rootable, Frameable{
 			
 		}else { // a field was blank:
 			System.out.println("no dice, punk!");
-			FrameController.getFrameCtrlr().showAlert("Warning", "Username or Password was blank");
+			//FrameController.getFrameCtrlr().showDialog("Warning", "Username or Password was blank");
+			
+			
+			
+			JFXDialogLayout layout = new JFXDialogLayout();
+	        layout.setHeading(new Label("woo"));
+	        layout.setBody(new Label("hoo"));
+	        JFXDialog dialog = new JFXDialog(
+	        		FrameController.getFrameCtrlr().getDialogSP(), 
+	        		layout, JFXDialog.DialogTransition.CENTER);
+	        dialog.show();
+	        
+	        //https://stackoverflow.com/questions/42443971/javafx-creating-custom-dialogs-using-fxml
 		} 
   		
   	}

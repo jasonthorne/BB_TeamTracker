@@ -10,9 +10,7 @@ public enum View {
 	LOGIN("login.fxml", "Login");
 	
 	//path:
-	private String path = "/"
-			.concat(this.getClass().getPackage().getName())
-			.concat("/"); 
+	private String path = "/".concat(this.getClass().getPackage().getName()).concat("/"); 
 	
 	//optional title:
 	private Optional<String>optTitle = Optional.empty();
@@ -27,8 +25,7 @@ public enum View {
 	}
 	
 	public String getPath() { return path; } //return path
-	public Optional<String> getOptTitle() { return optTitle; } //return optional title
-	
+	public Optional<String> getOptTitle() { return optTitle; } //return title
 }
 
 //+++++++++++make test to ensure that all enteries contain .fxml
