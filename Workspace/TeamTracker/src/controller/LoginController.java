@@ -7,7 +7,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
-import view.ViewPath;
+import view.View;
 
 public class LoginController implements Rootable, Frameable{
 	
@@ -25,18 +25,20 @@ public class LoginController implements Rootable, Frameable{
     //fxml root node:
   	private Parent root;
   	
+  	private View view = View.LOGIN_FXML; //set this to then get ...
+  	
   	//constructor:
   	LoginController() {
   		setRoot(); //set root node
   		
   	}
 
-  	
+  	/** from Frameable: */
 	@Override
-	public void setRoot() {this.root = Rootable.getRoot(this, ViewPath.LOGIN_FXML);} //set root
+	public void setRoot() {this.root = Rootable.getRoot(this, View.LOGIN_FXML);} //set root
 	@Override
-	public Parent getRoot() { return root; } //get root
+	public Parent getRoot() {return root;} //get root
 	@Override
-	public String getViewTitle() { return null; }
+	public String getViewTitle() {return view.getTitle();} //get view title
 
 }

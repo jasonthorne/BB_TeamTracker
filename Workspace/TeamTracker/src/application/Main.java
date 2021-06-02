@@ -3,7 +3,7 @@ package application;
 import controller.FrameController;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import view.ViewPath;
+import view.View;
 
 public class Main extends Application {
 

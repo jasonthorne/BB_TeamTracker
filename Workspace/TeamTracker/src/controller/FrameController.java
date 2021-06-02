@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import view.ViewPath;
+import view.View;
 
 public class FrameController implements Rootable {
 	
@@ -43,13 +43,12 @@ public class FrameController implements Rootable {
     //private constructor for singleton reference:
     private FrameController(){
     	loginCtrlr = new LoginController(); //instantiate login controller
-    	scene = new Scene(Rootable.getRoot(this, ViewPath.FRAME_FXML)); //add root to scene
+    	scene = new Scene(Rootable.getRoot(this, View.FRAME_FXML)); //add root to scene
     	stage.setScene(scene); //add scene to stage
     }
     
   	//get frame controller singleton:
     public static FrameController getFrameCtrlr() {
-    	System.out.println("me");
     	//create singleton if necessary:
         if (singleFrameCtrlr == null) { singleFrameCtrlr = new FrameController(); }
         return singleFrameCtrlr; 
@@ -61,6 +60,7 @@ public class FrameController implements Rootable {
     //add root to body AnchorPane:
   	private void addRootToBody(Parent root){
   		bodyAP.getChildren().setAll(root); //replace bodyAP's children with root
+  		viewLbl.setText(loginCtrlr.getViewTitle()); ////////////////???????????? make this better :P
   	}
     
     

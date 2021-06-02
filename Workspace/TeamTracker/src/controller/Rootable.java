@@ -4,15 +4,15 @@ import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import view.ViewPath;
+import view.View;
 
 /** serves controller classes in need of fxml root elements */
 
 public interface Rootable {
 
-	static Parent getRoot(Rootable rootable, ViewPath path) {
+	static Parent getRoot(Rootable rootable, View path) { //+++++++++++++HAVE THIS TAKE IN STRING INSTEAD OF VIEW :P
 		//create loader:
-		FXMLLoader loader = new FXMLLoader(rootable.getClass().getResource(path.toString())); 
+		FXMLLoader loader = new FXMLLoader(rootable.getClass().getResource(path.getPath())); 
 		loader.setController(rootable); //set this class as the controller
 		try {
 			loader.load(); //load fxml tree
