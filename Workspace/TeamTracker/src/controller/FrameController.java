@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.Optional;
+
 import com.jfoenix.controls.JFXButton;
 
 import javafx.fxml.FXML;
@@ -17,7 +19,7 @@ public class FrameController implements Rootable {
 	//root fxml element & children:
     @FXML private BorderPane rootBP;
     @FXML private AnchorPane headerAP;
-    @FXML private Label viewLbl;
+    @FXML private Label titleLbl;
     @FXML private JFXButton notifyBtn;
     @FXML private StackPane bodySP;
     @FXML private AnchorPane bodyAP;
@@ -28,8 +30,8 @@ public class FrameController implements Rootable {
     @FXML
     void initialize() {
   
-    	//add login.fxml to bodyAP:
-    	addRootToBody(loginCtrlr.getRoot());
+    	//show login view:
+    	showFrameable(loginCtrlr);
     }
     
     private final Stage stage = new Stage(); //stage
@@ -43,7 +45,7 @@ public class FrameController implements Rootable {
     //private constructor for singleton reference:
     private FrameController(){
     	loginCtrlr = new LoginController(); //instantiate login controller
-    	scene = new Scene(Rootable.getRoot(this, View.FRAME_FXML)); //add root to scene
+    	scene = new Scene(Rootable.getRoot(this, View.FRAME_FXML.getPath())); //add root to scene
     	stage.setScene(scene); //add scene to stage
     }
     
@@ -57,11 +59,13 @@ public class FrameController implements Rootable {
     //show stage:
     public void showStage() { stage.showAndWait(); }
     
-    //add root to body AnchorPane:
-  	private void addRootToBody(Parent root){
-  		bodyAP.getChildren().setAll(root); //replace bodyAP's children with root
-  		viewLbl.setText(loginCtrlr.getViewTitle()); ////////////////???????????? make this better :P
-  	}
-    
-    
+    private void showFrameable(Frameable frameable) {
+    	
+    	//replace bodyAP's children with framable's root:
+    	bodyAP.getChildren().setAll(frameable.getRoot());
+    	
+    	//set label with frameable's title if present:
+    	if(frameable.getOptTitle().isPresent()) {
+    		titleLbl.setText(frameable.getOptTitle().get()); }
+    }
 }

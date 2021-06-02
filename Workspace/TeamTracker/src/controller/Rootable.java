@@ -10,9 +10,9 @@ import view.View;
 
 public interface Rootable {
 
-	static Parent getRoot(Rootable rootable, View path) { //+++++++++++++HAVE THIS TAKE IN STRING INSTEAD OF VIEW :P
+	static Parent getRoot(Rootable rootable, String path) {
 		//create loader:
-		FXMLLoader loader = new FXMLLoader(rootable.getClass().getResource(path.getPath())); 
+		FXMLLoader loader = new FXMLLoader(rootable.getClass().getResource(path)); 
 		loader.setController(rootable); //set this class as the controller
 		try {
 			loader.load(); //load fxml tree

@@ -18,7 +18,7 @@
    <top>
       <AnchorPane fx:id="headerAP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: pink;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="viewLbl" alignment="CENTER" layoutX="110.0" layoutY="6.0" prefHeight="30.0" prefWidth="380.0" text="View Title" textAlignment="CENTER">
+            <Label fx:id="titleLbl" alignment="CENTER" layoutX="110.0" layoutY="6.0" prefHeight="30.0" prefWidth="380.0" text="Title" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>

@@ -9,8 +9,7 @@ public enum View {
 	FRAME_FXML("frame.fxml"),
 	LOGIN_FXML("login.fxml", "Login");
 	
-	/////private String path = "/" + this.getClass().getPackage().getName() + "/"; //path
-	private String path = "/".concat(this.getClass().getPackage().getName()).concat("/"); //package page
+	private String path = "/".concat(this.getClass().getPackage().getName()).concat("/"); //package path
 	private String title;
 	private Optional<String>optTitle = Optional.empty(); //optional title
 	
@@ -26,12 +25,9 @@ public enum View {
 	}
 	
 	public String getPath() { return path; } //return path
-	public String gettitle() { return title; } //return path
-	/*public Optional<String> getOptTitle() {
-		
-		return optTitle;
-	}*/
-
+	//public String gettitle() { return title; } //return path
+	public Optional<String> getOptTitle() { return optTitle; } //return optional title
+	
 }
 
 //+++++++++++make test to ensure that all enteries contain .fxml
