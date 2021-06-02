@@ -3,6 +3,8 @@ package controller;
 import java.util.Optional;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -14,18 +16,19 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import view.View;
 
-public class FrameController implements Rootable {
+public final class FrameController implements Rootable {
 	
 	//root fxml element & children:
     @FXML private BorderPane rootBP;
     @FXML private AnchorPane headerAP;
     @FXML private Label titleLbl;
     @FXML private JFXButton notifyBtn;
-    @FXML private StackPane bodySP;
     @FXML private AnchorPane bodyAP;
     @FXML private AnchorPane footerAP;
     @FXML private JFXButton backBtn;
     @FXML private JFXButton fwrdBtn;
+    //stack pane for dialog:
+    @FXML private StackPane dialogSP;
     
     @FXML
     void initialize() {
@@ -56,8 +59,10 @@ public class FrameController implements Rootable {
         return singleFrameCtrlr; 
     }
   	
-    //show stage:
-    public void showStage() { stage.showAndWait(); }
+    //show stage, if not shown:
+    public void showStage() {
+    	if(!stage.isShowing()){stage.showAndWait();}
+    }
     
     //show frameable's view:
     private void showFrameable(Frameable frameable) {
@@ -69,4 +74,20 @@ public class FrameController implements Rootable {
     	//replace bodyAP's children with framable's root:
     	bodyAP.getChildren().setAll(frameable.getRoot());
     }
+    
+    
+    void showAlert(String heading, String message) {
+    	
+    	JFXDialogLayout layout = new JFXDialogLayout();
+        layout.setHeading(new Label(heading));
+        layout.setBody(new Label(message));
+        JFXDialog dialog = new JFXDialog(dialogSP, layout, JFXDialog.DialogTransition.CENTER);
+        dialog.show();
+    }
+   
 }
+
+enum Alert {
+	
+}
+

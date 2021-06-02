@@ -29,7 +29,7 @@ public class LoginController implements Rootable, Frameable{
     
   	//constructor:
   	LoginController() { /////??????????needed?????
-  		
+ 
   	}
   	
   	private void loginUser() {
@@ -43,6 +43,7 @@ public class LoginController implements Rootable, Frameable{
 			
 		}else { // a field was blank:
 			System.out.println("no dice, punk!");
+			FrameController.getFrameCtrlr().showAlert("Warning", "Username or Password was blank");
 		} 
   		
   	}
