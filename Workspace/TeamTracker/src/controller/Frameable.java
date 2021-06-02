@@ -22,37 +22,4 @@ public interface Frameable {
 	//force optional title getter:
 	abstract Optional<String> getOptTitle();
 	
-	//force title getter:
-	//abstract String getViewTitle();
-	
-	
-	
-	/*
-	//-------------1st plan:
-	static Optional<String>getOptTitle(View view){
-		return view.getOptTitle();
-	}
-	
-	//------------better plan:
-	static void getViewTitle2(View view){
-		//////////FrameController.getFrameCtrlr().
-	}*/
-	
-	//==============
-	
-	//abstract View getView();
-	
-	/*static Parent getRootTEST() {
-		return Rootable.getRoot(this, path)getView().
-	}*/
-	
-	
-	//============
-	
-	
-	
-	
-	
-	
-	
 }
