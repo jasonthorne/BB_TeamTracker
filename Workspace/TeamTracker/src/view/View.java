@@ -2,18 +2,15 @@ package view;
 
 import java.util.Optional;
 
-/** provides paths & titles for the stated fxml view files within this classe's package */
+/** provides paths & titles for the stated fxml views within this classe's package */
 
 public enum View {
 	
 	FRAME("frame.fxml"),
 	LOGIN("login.fxml", "Login");
 	
-	//path:
-	private String path = "/".concat(this.getClass().getPackage().getName()).concat("/"); 
-	
-	//optional title:
-	private Optional<String>optTitle = Optional.empty();
+	private String path = "/".concat(this.getClass().getPackage().getName()).concat("/"); //path 
+	private Optional<String>optTitle = Optional.empty(); //optional title
 	
 	private View(String fileName, String title) {
 		this(fileName);

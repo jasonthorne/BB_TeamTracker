@@ -28,7 +28,7 @@ public final class FrameController implements Rootable {
     @FXML private AnchorPane footerAP;
     @FXML private JFXButton backBtn;
     @FXML private JFXButton fwrdBtn;
-    //stack pane for dialog:
+    //stack pane for dialogs:
     @FXML private StackPane dialogSP;
     
     @FXML
@@ -76,7 +76,7 @@ public final class FrameController implements Rootable {
     	bodyAP.getChildren().setAll(frameable.getRoot());
     }
     
-    
+    /*
     void showDialog(String heading, String message) {
     	
     	JFXDialogLayout layout = new JFXDialogLayout();
@@ -84,11 +84,12 @@ public final class FrameController implements Rootable {
         layout.setBody(new Label(message));
         JFXDialog dialog = new JFXDialog(dialogSP, layout, JFXDialog.DialogTransition.CENTER);
         dialog.show();
+    }*/
+    
+    //return stack pane for adding dialog:
+    StackPane getDialogSP() {
+    	return dialogSP; 
     }
     
-    StackPane getDialogSP() {
-    	return this.dialogSP;
-    }
-   
 }
 
