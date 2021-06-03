@@ -23,7 +23,7 @@ public class LoginController implements Rootable, Frameable{
     @FXML private JFXTextField nameTxtFld;
     @FXML private JFXPasswordField pswrdTxtFld;
     @FXML private JFXButton loginBtn;
-    @FXML private JFXDialog blankFieldDlog;
+    ///////////////////@FXML private JFXDialog blankFieldDlog;
     
     /*
     blankFieldDlog
@@ -66,11 +66,49 @@ public class LoginController implements Rootable, Frameable{
         JFXDialog dialog = new JFXDialog(
         		FrameController.getFrameCtrlr().getDialogSP(), 
         		layout, JFXDialog.DialogTransition.CENTER);
-        dialog.show();
+       // dialog.show();
         
+        JFXDialogLayout layout2 = new JFXDialogLayout();
+        layout2.setHeading(new Label("layout2"));
+        
+       dialog.setContent(layout2);
+        
+        //dialog.show();
+       //blankFieldDlog.setContent(layout2);
+       //blankFieldDlog.show(FrameController.getFrameCtrlr().getDialogSP());
+       
+       
+       //=================
+       
+       DialogContentController DialogContentCtrlr = new DialogContentController();
+       //////////blankFieldDlog.setContent(DialogContentCtrlr.getRoot());
+       
+       System.out.println(DialogContentCtrlr.getRoot());
+       
+       //blankFieldDlog.show(FrameController.getFrameCtrlr().getDialogSP());
+       //blankFieldDlog.show(DialogContentCtrlr.getSP());
+       //===================
        
         
         //blankFieldDlog.show(FrameController.getFrameCtrlr().getDialogSP());
+       
+       //======================
+       /*
+       JFXDialog dialog2 = new JFXDialog(
+       		FrameController.getFrameCtrlr().getDialogSP(), 
+       		new DialogContentController().getRoot(), JFXDialog.DialogTransition.CENTER);
+       dialog2.show();
+       
+       System.out.println(new DialogContentController().getRoot());
+       */
+       
+       
+       //============================
+       
+       
+       DialogController dialogCtrlr = new DialogController();
+       dialogCtrlr.getDialog().show(FrameController.getFrameCtrlr().getDialogSP());
+       
 			
 		} 
   	}

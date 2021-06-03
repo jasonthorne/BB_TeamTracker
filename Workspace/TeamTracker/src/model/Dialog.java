@@ -8,15 +8,17 @@ public abstract class Dialog {
 	
 	private JFXDialogLayout layout;
 	
-	private class Layout {
-		
-		Layout(Node[] headingNodes, Node[] bodyNodes, Node[] actionNodes){
-			layout.setHeading(headingNodes);
-			layout.setBody(bodyNodes);
-			layout.setActions(actionNodes);
-		}
+	Dialog(Node[] headingNodes, Node[] bodyNodes, Node[] actionNodes) {
+		layout.setHeading(headingNodes);
+		layout.setBody(bodyNodes);
+		layout.setActions(actionNodes);
 	}
-
+		
+	public static Dialog getDialog(){
+		return null; //new JFXDialog();	
+		
+	}
+	
 }
 
 
