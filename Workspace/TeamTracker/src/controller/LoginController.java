@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -22,22 +23,18 @@ public class LoginController implements Rootable, Frameable{
     @FXML private JFXTextField nameTxtFld;
     @FXML private JFXPasswordField pswrdTxtFld;
     @FXML private JFXButton loginBtn;
+    @FXML private JFXDialog blankFieldDlog;
     
-    @FXML
-    private JFXDialog dialogTEST;
+    /*
+    blankFieldDlog
+    loginErrorDlog
+    connectErrorDlog
+    */
 
-   // @FXML
-   // private JFXDialogLayout dialogLayoutTEST;
-
-   // @FXML
-   // private Label dialogLblTEST;
-
-    
     @FXML
     void initialize() {
     	//set btn actions:
 		loginBtn.setOnAction(event -> loginUser());
-		
     }
     
     
@@ -46,7 +43,7 @@ public class LoginController implements Rootable, Frameable{
  
   	}
   	
-  	private void loginUser() {
+  	private void loginUser() { /** +++++++++++++Database timeout/lack of connection needs caught here too! - maybe make a custom exception ofr that, showing a dialog box too! */
   		
 	  	//trim name & password fields:
 		String name = nameTxtFld.getText().trim();
@@ -55,31 +52,30 @@ public class LoginController implements Rootable, Frameable{
 		//if fields aren't empty: 
 		if(!name.equals("") && !password.equals("")) {
 			
-		}else { // a field was blank:
-			System.out.println("no dice, punk!");
-			//FrameController.getFrameCtrlr().showDialog("Warning", "Username or Password was blank");
-			/*
-			JFXDialogLayout layout = new JFXDialogLayout();
-	        layout.setHeading(new Label("woo"));
-	        layout.setBody(new Label("hoo"));
-	        JFXDialog dialog = new JFXDialog(
-	        		FrameController.getFrameCtrlr().getDialogSP(), 
-	        		layout, JFXDialog.DialogTransition.CENTER);
-	        dialog.show();
-	        */
-	        //https://stackoverflow.com/questions/42443971/javafx-creating-custom-dialogs-using-fxml
-	        
-	        //https://icons8.com/icons/set/warning
-	        
-	        //https://www.youtube.com/watch?v=9C-kHuo_BrQ
-			//dialogTEST.setTransitionType(JFXDialog.DialogTransition.CENTER);
-			//dialogTEST.setDialogContainer(FrameController.getFrameCtrlr().getDialogSP());
-			dialogTEST.show(FrameController.getFrameCtrlr().getDialogSP());
+		}else { //a field was blank:
+			
+		/////blankFieldDlog.getChildren().add(arg0) ++Maybe add a child here
+		
+		//show blank field dialog on frame's stack pane:
+		//blankFieldDlog.show(FrameController.getFrameCtrlr().getDialogSP());
+		
+		JFXDialogLayout layout = new JFXDialogLayout();
+        layout.setHeading(new Label("yo"));
+        layout.setBody(new Label("there"));
+        
+        JFXDialog dialog = new JFXDialog(
+        		FrameController.getFrameCtrlr().getDialogSP(), 
+        		layout, JFXDialog.DialogTransition.CENTER);
+        dialog.show();
+        
+       
+        
+        //blankFieldDlog.show(FrameController.getFrameCtrlr().getDialogSP());
+			
 		} 
-  		
   	}
   	
-  
+  	
   	/** from Frameable: */
   	@Override
   	public Parent getRoot() {
