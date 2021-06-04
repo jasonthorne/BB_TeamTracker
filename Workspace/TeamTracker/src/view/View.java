@@ -6,6 +6,7 @@ import java.util.Optional;
 
 public enum View {
 	
+	DIALOG("dialog.fxml"),
 	FRAME("frame.fxml"),
 	LOGIN("login.fxml", "Login");
 	

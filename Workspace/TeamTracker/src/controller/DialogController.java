@@ -6,6 +6,8 @@ import com.jfoenix.controls.JFXDialogLayout;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import model.DialogFactory;
+import view.View;
 
 public class DialogController implements Rootable{
 	
@@ -21,17 +23,19 @@ public class DialogController implements Rootable{
     	
     	//add stuff to layout content
     	contentDL.setHeading(new Label("Dialog Heading"));
-    	contentDL.setBody(new Label("Dialog body"));
-		System.out.println(contentDL.getChildren());
-		System.out.println("hullo!");
+    	//contentDL.setBody(new Label("Dialog body"));
+    	contentDL.getBody().add(new Label("my new body!!!"));
+		//contentDL.getHeading().add(new Label("this works, yeah??"));
 		
 		rootDialog.setContent(contentDL);
-		
-      
     }
     
+    DialogController(){
+    	new DialogFactory().test();
+    }
     
-    Parent root = Rootable.getRoot(this, "/view/dialog.fxml");
+    //root fxml: 
+    Parent root = Rootable.getRoot(this, View.DIALOG.getPath());
     
     JFXDialog getDialog() {
     	return rootDialog;

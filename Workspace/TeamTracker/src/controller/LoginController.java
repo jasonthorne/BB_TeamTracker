@@ -80,11 +80,10 @@ public class LoginController implements Rootable, Frameable{
        
        //=================
        
-       DialogContentController DialogContentCtrlr = new DialogContentController();
+       ///DialogContentController DialogContentCtrlr = new DialogContentController();
        //////////blankFieldDlog.setContent(DialogContentCtrlr.getRoot());
        
-       System.out.println(DialogContentCtrlr.getRoot());
-       
+      
        //blankFieldDlog.show(FrameController.getFrameCtrlr().getDialogSP());
        //blankFieldDlog.show(DialogContentCtrlr.getSP());
        //===================
@@ -105,9 +104,9 @@ public class LoginController implements Rootable, Frameable{
        
        //============================
        
-       
-       DialogController dialogCtrlr = new DialogController();
-       dialogCtrlr.getDialog().show(FrameController.getFrameCtrlr().getDialogSP());
+       /** ++++++++++++++++++OHHH YEAH!! +++++++++++++ */
+      // DialogController dialogCtrlr = new DialogController();
+      new DialogController().getDialog().show(FrameController.getFrameCtrlr().getDialogSP());
        
 			
 		} 

@@ -76,16 +76,6 @@ public final class FrameController implements Rootable {
     	bodyAP.getChildren().setAll(frameable.getRoot());
     }
     
-    /*
-    void showDialog(String heading, String message) {
-    	
-    	JFXDialogLayout layout = new JFXDialogLayout();
-        layout.setHeading(new Label(heading));
-        layout.setBody(new Label(message));
-        JFXDialog dialog = new JFXDialog(dialogSP, layout, JFXDialog.DialogTransition.CENTER);
-        dialog.show();
-    }*/
-    
     //return stack pane for adding dialog:
     StackPane getDialogSP() {
     	return dialogSP; 
