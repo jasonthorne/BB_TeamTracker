@@ -5,7 +5,9 @@ import com.jfoenix.controls.JFXDialogLayout;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import model.Dialog;
 import model.DialogFactory;
 import view.View;
 
@@ -26,12 +28,17 @@ public class DialogController implements Rootable{
     	//contentDL.setBody(new Label("Dialog body"));
     	contentDL.getBody().add(new Label("my new body!!!"));
 		//contentDL.getHeading().add(new Label("this works, yeah??"));
+    	
+    	Button btn = new Button("yo, dawg!");
+    	btn.setOnAction(event -> rootDialog.close());
+    	
+    	contentDL.getActions().add(btn);
 		
 		rootDialog.setContent(contentDL);
     }
     
-    DialogController(){
-    	new DialogFactory().test();
+    DialogController() {
+    		System.out.println(Dialog.Type.ERROR.getImgPath());
     }
     
     //root fxml: 
