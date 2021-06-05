@@ -120,14 +120,14 @@ public class LoginController implements Rootable, Frameable{
        
       // new DialogController(new Pane(new Label("Hullo there!"))).show();
        
-      
+      JFXButton btn2 = new JFXButton("button2");
+      btn2.setOnAction(event -> System.out.println("btn2 clicked!"));
        
        new DialogController(
     		   new Pane(new Label("Heading be here")),
     		   new Pane(new Label("Body be here")),
-			   new HBox (new JFXButton("button2")),
-			   CloseButtonText.CLOSE_BUTTON,
-			   true).show();
+			   new HBox (btn2),
+			   CloseButtonText.CLOSE_BUTTON).show();
 			  
        
 			
