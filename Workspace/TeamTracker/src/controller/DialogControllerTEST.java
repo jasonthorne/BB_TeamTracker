@@ -88,7 +88,6 @@ public class DialogControllerTEST implements Rootable{
     	
 		
 		
-		
     }
     
     //root fxml: 

@@ -109,7 +109,10 @@ public class LoginController implements Rootable, Frameable{
        /** ++++++++++++++++++OHHH YEAH!! +++++++++++++ */
       
        ///////////new DialogControllerTEST().getDialog().show(FrameController.getFrameCtrlr().getDialogSP());
+       
        new DialogController(new Pane(new Label("Hullo there!"))).show();
+       
+       
 			
 		} 
   	}
