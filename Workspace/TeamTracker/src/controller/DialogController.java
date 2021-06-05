@@ -18,10 +18,9 @@ public class DialogController implements Rootable {
 
     @FXML
     void initialize() {
-    	
+   
     	//set contentDL as content:
     	rootDialog.setContent(contentDL);
-   
     }
     
     //root fxml: 
@@ -41,13 +40,19 @@ public class DialogController implements Rootable {
 	DialogController(Pane bodyPane){
 		contentDL.setBody(bodyPane); //add body pane
 	}
+	
+	DialogController(){
+		
+	}
 
 	void show() {
 		//show dialog on frame controller's stack pane:
 		rootDialog.show(FrameController.getFrameCtrlr().getDialogSP());
 	}
 	
+	/*
+	static void close() {
+		rootDialog.close();
+	}*/
 	
-	
-
 }

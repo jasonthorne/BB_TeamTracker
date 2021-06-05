@@ -12,8 +12,10 @@ import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import view.View;
@@ -37,7 +39,12 @@ public class LoginController implements Rootable, Frameable{
     void initialize() {
     	//set btn actions:
 		loginBtn.setOnAction(event -> loginUser());
+		
+		 
+	      //btn.setOnAction(event -> DialogController.close());
     }
+    
+    JFXButton btn = new JFXButton();
     
     
   	//constructor:
@@ -110,8 +117,17 @@ public class LoginController implements Rootable, Frameable{
       
        ///////////new DialogControllerTEST().getDialog().show(FrameController.getFrameCtrlr().getDialogSP());
        
-       new DialogController(new Pane(new Label("Hullo there!"))).show();
+      // new DialogController(new Pane(new Label("Hullo there!"))).show();
        
+      
+       
+       new DialogController(
+    		   new Pane(new Label("Heading be here")),
+    		   new Pane(new Label("Body be here")),
+			   new Pane(new HBox(
+					   btn, 
+					   new JFXButton("button2"))),
+			   true).show();
        
 			
 		} 

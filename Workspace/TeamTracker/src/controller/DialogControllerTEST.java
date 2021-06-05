@@ -91,7 +91,7 @@ public class DialogControllerTEST implements Rootable{
     }
     
     //root fxml: 
-    Parent root = Rootable.getRoot(this, View.DIALOG.getPath());
+    ////////Parent root = Rootable.getRoot(this, View.DIALOG.getPath());
     
     DialogControllerTEST() {
     		//System.out.println(DialogTEST.Type.ERROR.getImgPath());
