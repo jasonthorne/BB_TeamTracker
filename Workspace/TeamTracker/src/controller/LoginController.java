@@ -14,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import view.View;
 
 public class LoginController implements Rootable, Frameable{
@@ -105,9 +107,9 @@ public class LoginController implements Rootable, Frameable{
        //============================
        
        /** ++++++++++++++++++OHHH YEAH!! +++++++++++++ */
-      // DialogController dialogCtrlr = new DialogController();
-      new DialogController().getDialog().show(FrameController.getFrameCtrlr().getDialogSP());
-       
+      
+       ///////////new DialogControllerTEST().getDialog().show(FrameController.getFrameCtrlr().getDialogSP());
+       new DialogController(new Pane(new Label("Hullo there!"))).show();
 			
 		} 
   	}

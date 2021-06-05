@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Dialog {
+public abstract class DialogTEST {
 	
 	//every dialog has:
 	/*
@@ -96,7 +96,7 @@ public abstract class Dialog {
 	/*
 	 * to make a dialog object: 
 	 * 
-	 * Dialog(Type type, ){
+	 * DialogTEST(Type type, ){
 	 * 
 	 */
 	
