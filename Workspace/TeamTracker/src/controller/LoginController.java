@@ -18,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import model.Dialog.CloseButtonText;
 import view.View;
 
 public class LoginController implements Rootable, Frameable{
@@ -124,13 +125,21 @@ public class LoginController implements Rootable, Frameable{
        new DialogController(
     		   new Pane(new Label("Heading be here")),
     		   new Pane(new Label("Body be here")),
-			   new Pane(new HBox(
-					   btn, 
-					   new JFXButton("button2"))),
+			   new HBox (new JFXButton("button2")),
+			   CloseButtonText.CLOSE_BUTTON,
 			   true).show();
+			  
        
 			
+		
+		
+		
+		
+		
 		} 
+       
+       
+       
   	}
   	
   	
