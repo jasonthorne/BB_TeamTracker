@@ -8,8 +8,8 @@ import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -121,15 +121,17 @@ public class LoginController implements Rootable, Frameable{
       // new DialogController(new Pane(new Label("Hullo there!"))).show();
        
       JFXButton btn2 = new JFXButton("button2");
-      btn2.setOnAction(event -> System.out.println("btn2 clicked!"));
-       
+      //btn2.setOnAction(event -> System.out.println("btn2 clicked!"));
+      btn2.addEventHandler(ActionEvent.ACTION, event -> System.out.println("btn2 clicked!"));
+      
        new DialogController(
-    		   new Pane(new Label("Heading be here")),
-    		   new Pane(new Label("Body be here")),
+    		   new Pane(new Label("Error")),
+    		   new Pane(new Label("Enter Username and Password")),
 			   new HBox (btn2),
-			   CloseButtonText.CLOSE_BUTTON).show();
-			  
-       
+			   CloseButtonText.CLOSE).show();
+	 
+      
+      //new DialogController(new Pane(new Label("Enter Username and Password"))).show();
 			
 		
 		
