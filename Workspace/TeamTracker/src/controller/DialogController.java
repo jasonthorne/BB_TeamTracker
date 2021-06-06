@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import model.Dialog.ButtonText;
 import view.View;
 
@@ -40,9 +41,9 @@ public class DialogController implements Rootable {
    		
    		HBox hBox = new HBox(closeBtn); //make HBox with close button
 		for(JFXButton btn : btns) {
-			//add close dialog event to each button:
+			//add close dialog event to button:
 			btn.addEventHandler(ActionEvent.ACTION, event-> rootDialog.close());
-			hBox.getChildren().add(btn); //add each button to HBox
+			hBox.getChildren().add(btn); //add button to HBox
 		}
    
    		contentDL.setActions(hBox); //add HBox to content
@@ -59,4 +60,5 @@ public class DialogController implements Rootable {
 		//show dialog on frame controller's stack pane:
 		rootDialog.show(FrameController.getFrameCtrlr().getDialogSP());
 	}
+	
 }

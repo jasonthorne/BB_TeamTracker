@@ -64,81 +64,20 @@ public class LoginController implements Rootable, Frameable{
 			
 		}else { //a field was blank:
 			
-		/////blankFieldDlog.getChildren().add(arg0) ++Maybe add a child here
-		
-		//show blank field dialog on frame's stack pane:
-		//blankFieldDlog.show(FrameController.getFrameCtrlr().getDialogSP());
-		
-		JFXDialogLayout layout = new JFXDialogLayout();
-        layout.setHeading(new Label("yo"));
-        layout.setBody(new Label("there"));
-        
-        JFXDialog dialog = new JFXDialog(
-        		FrameController.getFrameCtrlr().getDialogSP(), 
-        		layout, JFXDialog.DialogTransition.CENTER);
-       // dialog.show();
-        
-        JFXDialogLayout layout2 = new JFXDialogLayout();
-        layout2.setHeading(new Label("layout2"));
-        
-       dialog.setContent(layout2);
-        
-        //dialog.show();
-       //blankFieldDlog.setContent(layout2);
-       //blankFieldDlog.show(FrameController.getFrameCtrlr().getDialogSP());
-       
-       
-       //=================
-       
-       ///DialogContentController DialogContentCtrlr = new DialogContentController();
-       //////////blankFieldDlog.setContent(DialogContentCtrlr.getRoot());
-       
-      
-       //blankFieldDlog.show(FrameController.getFrameCtrlr().getDialogSP());
-       //blankFieldDlog.show(DialogContentCtrlr.getSP());
-       //===================
-       
-        
-        //blankFieldDlog.show(FrameController.getFrameCtrlr().getDialogSP());
-       
-       //======================
-       /*
-       JFXDialog dialog2 = new JFXDialog(
-       		FrameController.getFrameCtrlr().getDialogSP(), 
-       		new DialogContentController().getRoot(), JFXDialog.DialogTransition.CENTER);
-       dialog2.show();
-       
-       System.out.println(new DialogContentController().getRoot());
-       */
-       
-       
-       //============================
-       
-       /** ++++++++++++++++++OHHH YEAH!! +++++++++++++ */
-      
-       ///////////new DialogControllerTEST().getDialog().show(FrameController.getFrameCtrlr().getDialogSP());
-       
-      // new DialogController(new Pane(new Label("Hullo there!"))).show();
-       
-      JFXButton btn2 = new JFXButton("button2");
-      //btn2.setOnAction(event -> System.out.println("btn2 clicked!"));
-      btn2.addEventHandler(ActionEvent.ACTION, event -> System.out.println("btn2 clicked!"));
-      
-       new DialogController(
-    		   /*new Pane(new Label("Error")),*/
-    		   new Pane(new Label("Enter Username and Password")),
-			   //new HBox (btn2),
-    		   ButtonText.CLOSE,
-			   btn2 , new JFXButton("btn3")).show();
-	 
-      
-      //new DialogController(new Pane(new Label("Enter Username and Password"))).show();
 			
-		
-		
-		
-		
-		
+	      JFXButton btn2 = new JFXButton("button2");
+	      btn2.addEventHandler(ActionEvent.ACTION, event -> System.out.println("btn2 clicked!"));
+	      
+	      JFXButton btn3 = new JFXButton("button3");
+	      btn3.addEventHandler(ActionEvent.ACTION, event -> System.out.println("btn3 clicked!"));
+	      
+	       new DialogController(
+	    		  /* new Pane(new Label("Error")),*/
+	    		   new Pane(new Label("Enter Username and Password")),
+				   //new HBox (btn2),
+	    		   ButtonText.OK
+				   /*, btn2 , btn3*/).show();
+		 
 		} 
        
        
