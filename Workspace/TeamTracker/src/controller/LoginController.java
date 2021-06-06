@@ -18,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import model.Dialog.CloseButtonText;
+import model.Dialog.ButtonText;
 import view.View;
 
 public class LoginController implements Rootable, Frameable{
@@ -128,8 +128,8 @@ public class LoginController implements Rootable, Frameable{
     		   /*new Pane(new Label("Error")),*/
     		   new Pane(new Label("Enter Username and Password")),
 			   //new HBox (btn2),
-    		   btn2,
-			   CloseButtonText.CLOSE).show();
+    		   ButtonText.CLOSE,
+			   btn2 , new JFXButton("btn3")).show();
 	 
       
       //new DialogController(new Pane(new Label("Enter Username and Password"))).show();
