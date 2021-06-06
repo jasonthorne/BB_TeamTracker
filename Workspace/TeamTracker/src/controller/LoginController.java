@@ -125,9 +125,10 @@ public class LoginController implements Rootable, Frameable{
       btn2.addEventHandler(ActionEvent.ACTION, event -> System.out.println("btn2 clicked!"));
       
        new DialogController(
-    		   new Pane(new Label("Error")),
+    		   /*new Pane(new Label("Error")),*/
     		   new Pane(new Label("Enter Username and Password")),
-			   new HBox (btn2),
+			   //new HBox (btn2),
+    		   btn2,
 			   CloseButtonText.CLOSE).show();
 	 
       

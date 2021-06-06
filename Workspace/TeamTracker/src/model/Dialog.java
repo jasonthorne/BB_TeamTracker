@@ -2,7 +2,7 @@ package model;
 
 public abstract class Dialog {
 	
-	
+	//+++++++++++++++DialogButtonText
 	public enum CloseButtonText {
 		
 		CLOSE("Close"),

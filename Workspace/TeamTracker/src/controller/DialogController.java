@@ -14,16 +14,12 @@ import view.View;
 
 public class DialogController implements Rootable {
 	
-	//dialog and layout content:
-	@FXML private JFXDialog rootDialog;
-	@FXML private JFXDialogLayout contentDL;
-	
-	//dialog close button:
-	@FXML private JFXButton closeBtn;
+	@FXML private JFXDialog rootDialog; //dialog
+	@FXML private JFXDialogLayout contentDL; //layout content
+	@FXML private JFXButton closeBtn; //close button
    
     @FXML
     void initialize() {
-   
     	rootDialog.setContent(contentDL); //set contentDL as content
     	closeBtn.setOnAction(event-> rootDialog.close()); //set closeBtn to close dialog
     }
@@ -42,12 +38,23 @@ public class DialogController implements Rootable {
    		this(bodyP);
    		closeBtn.setText(closeBtnTxt.toString()); //set close button text
    	
-   		actionsHB.getChildren().forEach(action -> { //add dialog close event to each action
+   		actionsHB.getChildren().forEach(action -> { //add dialog close to each action
    			action.addEventHandler(ActionEvent.ACTION, event -> rootDialog.close());
    		});
    		
    		actionsHB.getChildren().add(0, closeBtn); //add close button as first option
    		contentDL.setActions(actionsHB); //add actions to content
+   		rootDialog.setOverlayClose(false); //prevent close on outer click
+   	}
+   	
+   	DialogController(Pane bodyP, JFXButton actionsBtn, CloseButtonText closeBtnTxt){
+   		this(bodyP);
+   		closeBtn.setText(closeBtnTxt.toString()); //set close button text
+   		
+   		actionsBtn.addEventHandler( //add dialog close to button
+   				ActionEvent.ACTION, event->rootDialog.close());
+   		
+   		contentDL.setActions(new HBox(closeBtn, actionsBtn)); //add actions to content
    		rootDialog.setOverlayClose(false); //prevent close on outer click
    	}
    	
