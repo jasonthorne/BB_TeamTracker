@@ -9,6 +9,9 @@ import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
+import dialog.Dialog;
+import view.View;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -18,70 +21,64 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import model.Dialog.ButtonText;
-import view.View;
 
-public class LoginController implements Rootable, Frameable{
+public final class LoginController implements Rootable, Frameable{
 	
 	//root fxml element & children:
 	@FXML private AnchorPane rootAP;
     @FXML private JFXTextField nameTxtFld;
-    @FXML private JFXPasswordField pswrdTxtFld;
+    @FXML private JFXPasswordField pswdTxtFld;
     @FXML private JFXButton loginBtn;
-    ///////////////////@FXML private JFXDialog blankFieldDlog;
-    
-    /*
-    blankFieldDlog
-    loginErrorDlog
-    connectErrorDlog
-    */
+    @FXML private JFXButton signupBtn;
 
     @FXML
     void initialize() {
     	//set btn actions:
-		loginBtn.setOnAction(event -> loginUser());
-		
-		 
-	      //btn.setOnAction(event -> DialogController.close());
+		loginBtn.setOnAction(event -> login());
+		signupBtn.setOnAction(event -> signUp());
     }
-    
-    JFXButton btn = new JFXButton();
-    
     
   	//constructor:
   	LoginController() { /////??????????needed?????
  
   	}
   	
-  	private void loginUser() { /** +++++++++++++Database timeout/lack of connection needs caught here too! - maybe make a custom exception ofr that, showing a dialog box too! */
+  	//log user into app:
+  	private void login() { /** +++++++++++++Database timeout/lack of connection needs caught here too! - maybe make a custom exception ofr that, showing a dialog box too! */
   		
 	  	//trim name & password fields:
 		String name = nameTxtFld.getText().trim();
-		String password = pswrdTxtFld.getText().trim();
+		String password = pswdTxtFld.getText().trim();
+  		
+		//if fields aren't empty: 
+		if(!name.equals("") && !password.equals("")) {
+			
+		}else { //a field was empty:
+			showAddNameAndPswd(); //inform user
+		} 
+  	}
+  	
+  	//sign user into app:
+  	private void signUp() {
+  		
+	  	//trim name & password fields:
+		String name = nameTxtFld.getText().trim();
+		String password = pswdTxtFld.getText().trim();
 		
 		//if fields aren't empty: 
 		if(!name.equals("") && !password.equals("")) {
 			
-		}else { //a field was blank:
-			
-			
-	      JFXButton btn2 = new JFXButton("button2");
-	      btn2.addEventHandler(ActionEvent.ACTION, event -> System.out.println("btn2 clicked!"));
-	      
-	      JFXButton btn3 = new JFXButton("button3");
-	      btn3.addEventHandler(ActionEvent.ACTION, event -> System.out.println("btn3 clicked!"));
-	      
-	       new DialogController(
-	    		  /* new Pane(new Label("Error")),*/
-	    		   new Pane(new Label("Enter Username and Password")),
-				   //new HBox (btn2),
-	    		   ButtonText.OK
-				   /*, btn2 , btn3*/).show();
-		 
-		} 
-       
-       
-       
+		}else { //a field was empty:
+			showAddNameAndPswd(); //inform user
+		}
+  		
+  	}
+  	
+  	private void showAddNameAndPswd() {
+  		//dialog, telling user to add name & password:
+		new DialogController(
+				new Pane(new Label(Dialog.BodyText.EMPTY_NAME_OR_PSWD.toString())), 
+				Dialog.ButtonText.OK).show();
   	}
   	
   	

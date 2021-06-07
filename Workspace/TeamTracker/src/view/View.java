@@ -8,7 +8,7 @@ public enum View {
 	
 	DIALOG("dialog.fxml"),
 	FRAME("frame.fxml"),
-	LOGIN("login.fxml", "Login");
+	LOGIN("login.fxml", "Log In");
 	
 	private String path = "/".concat(this.getClass().getPackage().getName()).concat("/"); //path 
 	private Optional<String>optTitle = Optional.empty(); //optional title
