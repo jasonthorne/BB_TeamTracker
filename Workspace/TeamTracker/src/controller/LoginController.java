@@ -1,6 +1,5 @@
 package controller;
 
-import java.util.Arrays;
 import java.util.Optional;
 
 import com.jfoenix.controls.JFXButton;
@@ -27,7 +26,7 @@ public final class LoginController implements Rootable, Frameable{
 	//root fxml element & children:
 	@FXML private AnchorPane rootAP;
     @FXML private JFXTextField nameTxtFld;
-    @FXML private JFXPasswordField pswdTxtFld;
+    @FXML private JFXPasswordField passwordFld;
     @FXML private JFXButton loginBtn;
     @FXML private JFXButton signupBtn;
 
@@ -43,16 +42,19 @@ public final class LoginController implements Rootable, Frameable{
  
   	}
   	
+  	//+++++++++++++++++++++++
+  	//https://stackoverflow.com/questions/60049990/how-do-i-show-contents-from-the-password-field-in-javafx-using-checkbox
+  	
   	private void loginUser() { /** +++++++++++++Database timeout/lack of connection needs caught here too! - maybe make a custom exception ofr that, showing a dialog box too! */
   		
 	  	//trim name & password fields:
 		String name = nameTxtFld.getText().trim();
-		String password = pswdTxtFld.getText().trim();
+		String password = passwordFld.getText().trim();
   		
 		//if fields aren't empty: 
 		if(!name.equals("") && !password.equals("")) {
 			
-		}else { //name and/or password was empty:
+		}else { //name and-or password was empty:
 			showAddNameAndPswd(); //inform user
 		} 
   	}
@@ -61,15 +63,14 @@ public final class LoginController implements Rootable, Frameable{
   		
 	  	//trim name & password fields:
 		String name = nameTxtFld.getText().trim();
-		String password = pswdTxtFld.getText().trim();
+		String password = passwordFld.getText().trim();
 		
 		//if fields aren't empty: 
 		if(!name.equals("") && !password.equals("")) {
 			
-		}else { //name and/or password was empty:
+		}else { //name and-or password was empty:
 			showAddNameAndPswd(); //inform user
 		}
-  		
   	}
   	
   	//dialog telling user to add name & password:
