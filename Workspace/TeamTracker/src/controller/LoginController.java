@@ -33,9 +33,9 @@ public final class LoginController implements Rootable, Frameable{
 
     @FXML
     void initialize() {
-    	//set btn actions:
-		loginBtn.setOnAction(event -> login());
-		signupBtn.setOnAction(event -> signUp());
+    	//set button actions:
+		loginBtn.setOnAction(event -> loginUser());
+		signupBtn.setOnAction(event -> signupUser());
     }
     
   	//constructor:
@@ -43,8 +43,7 @@ public final class LoginController implements Rootable, Frameable{
  
   	}
   	
-  	//log user into app:
-  	private void login() { /** +++++++++++++Database timeout/lack of connection needs caught here too! - maybe make a custom exception ofr that, showing a dialog box too! */
+  	private void loginUser() { /** +++++++++++++Database timeout/lack of connection needs caught here too! - maybe make a custom exception ofr that, showing a dialog box too! */
   		
 	  	//trim name & password fields:
 		String name = nameTxtFld.getText().trim();
@@ -53,13 +52,12 @@ public final class LoginController implements Rootable, Frameable{
 		//if fields aren't empty: 
 		if(!name.equals("") && !password.equals("")) {
 			
-		}else { //a field was empty:
+		}else { //name and/or password was empty:
 			showAddNameAndPswd(); //inform user
 		} 
   	}
   	
-  	//sign user into app:
-  	private void signUp() {
+  	private void signupUser() {
   		
 	  	//trim name & password fields:
 		String name = nameTxtFld.getText().trim();
@@ -68,19 +66,18 @@ public final class LoginController implements Rootable, Frameable{
 		//if fields aren't empty: 
 		if(!name.equals("") && !password.equals("")) {
 			
-		}else { //a field was empty:
+		}else { //name and/or password was empty:
 			showAddNameAndPswd(); //inform user
 		}
   		
   	}
   	
+  	//dialog telling user to add name & password:
   	private void showAddNameAndPswd() {
-  		//dialog, telling user to add name & password:
 		new DialogController(
 				new Pane(new Label(Dialog.BodyText.EMPTY_NAME_OR_PSWD.toString())), 
 				Dialog.ButtonText.OK).show();
   	}
-  	
   	
   	/** from Frameable: */
   	@Override
