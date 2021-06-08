@@ -34,36 +34,20 @@ public final class FrameController implements Rootable, Fadeable {
     
     @FXML
     void initialize() {
-    	//show login view:
-    	/////showFrameable(loginCtrlr);
+    	//show leagues view:
     	showFrameable(leaguesCtrlr);
     	
     }
     
-    ////////////private final Stage stage = new Stage(); //stage
-    ////////////private final Scene scene; //scene
-    
-    //frame.fxml controller singleton reference:
+    //frame.fxml controller singleton:
   	private static FrameController singleFrameCtrlr = null;
-  	//login.fxml controller:
-   ////////////////////// private final LoginController loginCtrlr;
-    
-    //==========================
     //leagues.fxml controller:
-    private final LeaguesController leaguesCtrlr;
-    //private final Parent root = Rootable.getRoot(this, View.FRAME.getPath());
-    //=========================
-  	
-    //private constructor for singleton reference:
-    private FrameController(){
-    	//====================================
+    private final LeaguesController leaguesCtrlr = new LeaguesController();
+    
+    //private constructor for singleton:
+    private FrameController(){ //++++++++++++++++++++++++++++++++MIGHT NOT BE NEEDED. MIGHT BER TO KEEP IT PRIVATE THOUGH!! 
     	//instantiate leagues controller:
-    	leaguesCtrlr = new LeaguesController();
-    	//=====================================
-    	
-    	////////////////loginCtrlr = new LoginController(); //instantiate login controller
-    	///////////scene = new Scene(Rootable.getRoot(this, View.FRAME.getPath())); //add root to scene
-    	//////////stage.setScene(scene); //add scene to stage
+    	//leaguesCtrlr = new LeaguesController();
     	
     	//------------
     	
@@ -81,11 +65,6 @@ public final class FrameController implements Rootable, Fadeable {
         return singleFrameCtrlr; 
     }
   	
-    //show stage (if not):
-   /* public void showStage() {
-    	if(!stage.isShowing()){stage.showAndWait();}
-    }*/
-    
     //show frameable's view:
     private void showFrameable(Frameable frameable) {
     	
@@ -97,30 +76,9 @@ public final class FrameController implements Rootable, Fadeable {
     	bodyAP.getChildren().setAll(frameable.getRoot());
     }
     
-    /*
-    //return stack pane for adding dialog:
-    StackPane getDialogSP() {
-    	return dialogSP; 
-    }*/
-    
+    //show dialog on frame's stack pane:
     void ShowDialog(DialogController dialogCtrlr) {
     	dialogCtrlr.show(dialogSP);
     }
     
-    //==========================================================
-    
-    
-    
-    
-    
-    
-    
-    //=======================================================
-    
-    
-    
-    
-    
-    
 }
-

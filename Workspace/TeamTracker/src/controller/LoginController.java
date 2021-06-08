@@ -1,31 +1,21 @@
 package controller;
 
-import java.util.Optional;
-
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialog;
-import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
-import animation.Fadeable;
 import dialog.Dialog;
 import view.View;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public final class LoginController implements Rootable /*, Frameable*/{
+public final class LoginController implements Rootable {
 	
 	//root fxml element & children:
 	@FXML private AnchorPane rootAP;
@@ -39,35 +29,24 @@ public final class LoginController implements Rootable /*, Frameable*/{
     @FXML
     void initialize() {
     	//set button actions:
-		loginBtn.setOnAction(event -> showFrameTEST());
+		loginBtn.setOnAction(event -> showFrameView());
 		signupBtn.setOnAction(event -> signupUser());
     }
     
-    
-    
-  	//constructor:
-  	/*LoginController() { /////??????????needed?????
- 
-  	}*/
-  	
-  	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  	
   	private final Stage stage = new Stage(); //stage
-    private final Scene scene; //scene
   	
-  	//login.fxml controller singleton reference:
+  	//login.fxml controller singleton:
   	private static LoginController singleLoginCtrlr = null;
   	//frame.fxml controller:
-    private final FrameController frameCtrlr;
+    private final FrameController frameCtrlr = FrameController.getFrameCtrlr();
   	
-  	//private constructor for singleton reference:
+  	//private constructor for singleton:
     private LoginController(){
-    	frameCtrlr = FrameController.getFrameCtrlr(); //get frame controller
-    	scene = new Scene(Rootable.getRoot(this, View.LOGIN.getPath())); //add root to scene
+    	Scene scene = new Scene(Rootable.getRoot(this, View.LOGIN.getPath())); //add root to scene
     	stage.setScene(scene); //add scene to stage
     }
   	
-  	//get frame controller singleton:
+  	//get login controller singleton:
     public static LoginController getLoginCtrlr() {
     	//create singleton if necessary:
         if (singleLoginCtrlr == null) { singleLoginCtrlr = new LoginController(); }
@@ -79,29 +58,20 @@ public final class LoginController implements Rootable /*, Frameable*/{
     	if(!stage.isShowing()){stage.showAndWait();}
     }
     
-  	
-  	
     //=================================================
-  	private void showFrameTEST(){ //THIS IS LOGIN METHOD :P 
+  	private void showFrameView(){ //THIS IS LOGIN METHOD :P 
   		
-  		Scene scene = new Scene(Rootable.getRoot(frameCtrlr, View.FRAME.getPath())); //add root to scene
+  		//add frame.fxml root to scene:
+  		Scene scene = new Scene(Rootable.getRoot(frameCtrlr, View.FRAME.getPath()));
   		stage.setScene(scene); //add scene to stage
-  		//System.out.println("yo");
-  		//rootSP.getChildren().setAll(Rootable.getRoot(frameCtrlr, View.FRAME.getPath()));
-  		System.out.println(nameTxtFld.getText());
+  		
+  		
+  		
+  		
+  		///////////rootSP.getChildren().setAll(Rootable.getRoot(frameCtrlr, View.FRAME.getPath()));
+  		
   	}
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
+  	//================================================
   	
   	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   	//https://stackoverflow.com/questions/60049990/how-do-i-show-contents-from-the-password-field-in-javafx-using-checkbox
@@ -134,25 +104,11 @@ public final class LoginController implements Rootable /*, Frameable*/{
 		}
   	}
   	
-  	//dialog telling user to add name & password:
+  	//dialog to add name & password:
   	private void showAddNameAndPswd() {
 		new DialogController(
 				new Pane(new Label(Dialog.BodyText.EMPTY_NAME_OR_PSWD.toString())), 
 				Dialog.ButtonText.OK).show(dialogSP);
   	}
   	
-  	
-  	/** from Frameable: */
-  	/*
-  	@Override
-  	public Parent getRoot() {
-  		//return root fxml element of view, with this set as it's controller:
-  		return Rootable.getRoot(this, View.LOGIN.getPath()); //get root
-  	}
-  	
-	@Override
-	public Optional<String> getOptTitle() {
-		return View.LOGIN.getOptTitle(); //return optional view title
-	}*/
-	
 }

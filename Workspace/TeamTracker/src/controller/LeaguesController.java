@@ -32,13 +32,10 @@ public class LeaguesController implements Rootable, Frameable{
     }
     
     void testShowDialog() {
-    	System.out.println("hullo!");
-    	FrameController.getFrameCtrlr().ShowDialog(
-    			new DialogController(
-    					new Pane(new Label(Dialog.BodyText.EMPTY_NAME_OR_PSWD.toString())), 
-    					Dialog.ButtonText.OK));
+    	FrameController.getFrameCtrlr().ShowDialog(new DialogController(
+    			new Pane(new Label(Dialog.BodyText.EMPTY_NAME_OR_PSWD.toString())), 
+				Dialog.ButtonText.OK));
     }
-
     
     /** from Frameable: */
   	@Override
