@@ -3,6 +3,7 @@ package controller;
 import java.util.Optional;
 
 import javafx.scene.Parent;
+import view.View;
 
 /** serves controller classes who's views are displayed by adding their root nodes to frame.fxml */
 
@@ -20,5 +21,11 @@ public interface Frameable {
 	
 	//force title getter:
 	abstract Optional<String> getOptTitle();
+	
+	/*
+	 * this mighjt be better!! Just pass the view into this :P
+	static Optional<String> getOptTitle() {
+		return View.LOGIN.getOptTitle(); //return optional view title
+	}*/
 	
 }
