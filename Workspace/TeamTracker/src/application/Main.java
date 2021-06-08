@@ -1,6 +1,7 @@
 package application;
 
 import controller.FrameController;
+import controller.LoginController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -14,9 +15,16 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		
 		//get frame controller:
-		FrameController frameCtrlr = FrameController.getFrameCtrlr();
+		/////FrameController frameCtrlr = FrameController.getFrameCtrlr();
 		//show it's stage:
-    	frameCtrlr.showStage();
+    	///////frameCtrlr.showStage();
+    	
+    	
+    	
+    	//get frame controller:
+		LoginController loginCtrlr = LoginController.getLoginCtrlr();
+		//show it's stage:
+		loginCtrlr.showStage();
 	}
 
 }

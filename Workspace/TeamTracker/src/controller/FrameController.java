@@ -40,18 +40,18 @@ public final class FrameController implements Rootable, Fadeable {
     	
     }
     
-    private final Stage stage = new Stage(); //stage
-    private final Scene scene; //scene
+    ////////////private final Stage stage = new Stage(); //stage
+    ////////////private final Scene scene; //scene
     
     //frame.fxml controller singleton reference:
   	private static FrameController singleFrameCtrlr = null;
   	//login.fxml controller:
-    private final LoginController loginCtrlr;
+   ////////////////////// private final LoginController loginCtrlr;
     
     //==========================
     //leagues.fxml controller:
     private final LeaguesController leaguesCtrlr;
-    
+    //private final Parent root = Rootable.getRoot(this, View.FRAME.getPath());
     //=========================
   	
     //private constructor for singleton reference:
@@ -61,9 +61,9 @@ public final class FrameController implements Rootable, Fadeable {
     	leaguesCtrlr = new LeaguesController();
     	//=====================================
     	
-    	loginCtrlr = new LoginController(); //instantiate login controller
-    	scene = new Scene(Rootable.getRoot(this, View.FRAME.getPath())); //add root to scene
-    	stage.setScene(scene); //add scene to stage
+    	////////////////loginCtrlr = new LoginController(); //instantiate login controller
+    	///////////scene = new Scene(Rootable.getRoot(this, View.FRAME.getPath())); //add root to scene
+    	//////////stage.setScene(scene); //add scene to stage
     	
     	//------------
     	
@@ -82,9 +82,9 @@ public final class FrameController implements Rootable, Fadeable {
     }
   	
     //show stage (if not):
-    public void showStage() {
+   /* public void showStage() {
     	if(!stage.isShowing()){stage.showAndWait();}
-    }
+    }*/
     
     //show frameable's view:
     private void showFrameable(Frameable frameable) {
@@ -99,8 +99,29 @@ public final class FrameController implements Rootable, Fadeable {
     
     //return stack pane for adding dialog:
     StackPane getDialogSP() {
-    	return dialogSP; 
+    	//return dialogSP; 
+    	System.out.println(dialogSP.getParent());
+    	return null;
+    	
+    	
     }
+    
+    
+    
+    //==========================================================
+    
+    
+    
+    
+    
+    
+    
+    //=======================================================
+    
+    
+    
+    
+    
     
 }
 
