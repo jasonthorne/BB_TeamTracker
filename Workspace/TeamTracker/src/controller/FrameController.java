@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 
+import animation.Fadeable;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -17,7 +18,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import view.View;
 
-public final class FrameController implements Rootable {
+public final class FrameController implements Rootable, Fadeable {
 	
 	//root fxml element & children:
     @FXML private BorderPane rootBP;
@@ -51,6 +52,13 @@ public final class FrameController implements Rootable {
     	loginCtrlr = new LoginController(); //instantiate login controller
     	scene = new Scene(Rootable.getRoot(this, View.FRAME.getPath())); //add root to scene
     	stage.setScene(scene); //add scene to stage
+    	
+    	//------------
+    	int a = 5;
+    	///Thread thread = new Thread(() -> System.out.println("Running"));
+    	Fadeable.fadeOutToNew(new Thread(() -> System.out.println(a)));
+    	//------------
+    	
     }
     
   	//get frame controller singleton:
