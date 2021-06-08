@@ -34,9 +34,10 @@ public final class FrameController implements Rootable, Fadeable {
     
     @FXML
     void initialize() {
-    	
     	//show login view:
-    	showFrameable(loginCtrlr);
+    	/////showFrameable(loginCtrlr);
+    	showFrameable(leaguesCtrlr);
+    	
     }
     
     private final Stage stage = new Stage(); //stage
@@ -46,14 +47,26 @@ public final class FrameController implements Rootable, Fadeable {
   	private static FrameController singleFrameCtrlr = null;
   	//login.fxml controller:
     private final LoginController loginCtrlr;
+    
+    //==========================
+    //leagues.fxml controller:
+    private final LeaguesController leaguesCtrlr;
+    
+    //=========================
   	
     //private constructor for singleton reference:
     private FrameController(){
+    	//====================================
+    	//instantiate leagues controller:
+    	leaguesCtrlr = new LeaguesController();
+    	//=====================================
+    	
     	loginCtrlr = new LoginController(); //instantiate login controller
     	scene = new Scene(Rootable.getRoot(this, View.FRAME.getPath())); //add root to scene
     	stage.setScene(scene); //add scene to stage
     	
     	//------------
+    	
     	int a = 5;
     	///Thread thread = new Thread(() -> System.out.println("Running"));
     	Fadeable.fadeOutToNew(new Thread(() -> System.out.println(a)));
