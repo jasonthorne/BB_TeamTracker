@@ -2,11 +2,15 @@ package controller;
 
 import java.util.Optional;
 
+import com.jfoenix.controls.JFXButton;
+
 import animation.Fadeable;
+import dialog.Dialog;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import view.View;
 
 public class LeaguesController implements Rootable, Frameable{
@@ -16,10 +20,23 @@ public class LeaguesController implements Rootable, Frameable{
 
     @FXML
     private Label testLbl;
+    
+    @FXML
+    private JFXButton testBtn;
 
     @FXML
     void initialize() {
+    	
+    	testBtn.setOnAction(event -> testShowDialog());
      
+    }
+    
+    void testShowDialog() {
+    	System.out.println("hullo!");
+    	FrameController.getFrameCtrlr().ShowDialog(
+    			new DialogController(
+    					new Pane(new Label(Dialog.BodyText.EMPTY_NAME_OR_PSWD.toString())), 
+    					Dialog.ButtonText.OK));
     }
 
     

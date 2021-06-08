@@ -97,16 +97,15 @@ public final class FrameController implements Rootable, Fadeable {
     	bodyAP.getChildren().setAll(frameable.getRoot());
     }
     
+    /*
     //return stack pane for adding dialog:
     StackPane getDialogSP() {
-    	//return dialogSP; 
-    	System.out.println(dialogSP.getParent());
-    	return null;
-    	
-    	
+    	return dialogSP; 
+    }*/
+    
+    void ShowDialog(DialogController dialogCtrlr) {
+    	dialogCtrlr.show(dialogSP);
     }
-    
-    
     
     //==========================================================
     

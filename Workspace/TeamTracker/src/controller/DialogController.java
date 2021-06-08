@@ -56,10 +56,11 @@ public class DialogController implements Rootable {
    	
    	//---------------------------------------------------------------
    	
+   	/*
 	void show() {
 		//show dialog on frame controller's stack pane:
 		rootDialog.show(FrameController.getFrameCtrlr().getDialogSP());
-	}
+	}*/
 	
 	void show(StackPane stackPane) {
 		rootDialog.show(stackPane); //show dialog on stack pane

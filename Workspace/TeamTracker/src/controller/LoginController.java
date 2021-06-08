@@ -55,13 +55,10 @@ public final class LoginController implements Rootable /*, Frameable*/{
   	private final Stage stage = new Stage(); //stage
     private final Scene scene; //scene
   	
-  	
   	//login.fxml controller singleton reference:
   	private static LoginController singleLoginCtrlr = null;
-  	
   	//frame.fxml controller:
     private final FrameController frameCtrlr;
-  	
   	
   	//private constructor for singleton reference:
     private LoginController(){
@@ -85,7 +82,7 @@ public final class LoginController implements Rootable /*, Frameable*/{
   	
   	
     //=================================================
-  	private void showFrameTEST(){
+  	private void showFrameTEST(){ //THIS IS LOGIN METHOD :P 
   		
   		Scene scene = new Scene(Rootable.getRoot(frameCtrlr, View.FRAME.getPath())); //add root to scene
   		stage.setScene(scene); //add scene to stage
