@@ -4,10 +4,14 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
+import animation.Fade;
 import dialog.Dialog;
 import view.View;
-
+import javafx.animation.FadeTransition;
+import javafx.animation.ParallelTransition;
+import javafx.animation.SequentialTransition;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -29,7 +33,7 @@ public final class LoginController implements Rootable {
     @FXML
     void initialize() {
     	//set button actions:
-		loginBtn.setOnAction(event -> showFrameView());
+		loginBtn.setOnAction(event -> moveToFrameView());
 		signupBtn.setOnAction(event -> signupUser());
     }
     
@@ -58,22 +62,20 @@ public final class LoginController implements Rootable {
     	if(!stage.isShowing()){stage.showAndWait();}
     }
     
-    //=================================================
-  	private void showFrameView(){ //THIS IS LOGIN METHOD :P 
+  	private void moveToFrameView(){ 
   		
-  		//FADES HERE :P
-  		
-  		//add frame.fxml root to scene:
-  		Scene scene = new Scene(Rootable.getRoot(frameCtrlr, View.FRAME.getPath()));
-  		stage.setScene(scene); //add scene to stage
-  		
-  		
-  		
-  		
-  		///////////rootSP.getChildren().setAll(Rootable.getRoot(frameCtrlr, View.FRAME.getPath()));
-  		
+  		//fade out transition, adding frame view scene to stage on finish:
+  		FadeTransition fadeOut = Fade.getFadeTransition(dialogSP, Fade.FadeOption.FADE_OUT, 400);
+  		fadeOut.setOnFinished(event -> {
+  			
+  	  		Parent frameRoot = Rootable.getRoot(frameCtrlr, View.FRAME.getPath()); //get frame root
+  			stage.setScene(new Scene(frameRoot)); //add new scene with root to stage
+  			Fade.getFadeTransition(frameRoot, Fade.FadeOption.FADE_IN, 400).play(); //fade in view
+  		});
+  	  		
+  		fadeOut.play(); //play transition
   	}
-  	//================================================
+  	
   	
   	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   	//https://stackoverflow.com/questions/60049990/how-do-i-show-contents-from-the-password-field-in-javafx-using-checkbox

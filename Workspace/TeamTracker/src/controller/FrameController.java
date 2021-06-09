@@ -38,6 +38,8 @@ public final class FrameController implements Rootable {
     
     @FXML
     void initialize() {
+    	
+    	System.out.println("init");
     	//show leagues view:
     	showFrameable(leaguesCtrlr);
     	
