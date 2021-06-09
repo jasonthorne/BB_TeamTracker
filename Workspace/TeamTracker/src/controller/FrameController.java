@@ -39,11 +39,17 @@ public final class FrameController implements Rootable {
     @FXML
     void initialize() {
     	
+    	
+    	
     	System.out.println("init");
     	//show leagues view:
     	showFrameable(leaguesCtrlr);
     	
-    	notifyBtn.setOnAction(event -> transitionTEST());
+    	transitionTEST();
+    	
+    	//notifyBtn.setOnAction(event -> transitionTEST());
+    	
+    	
     	
     }
     
@@ -75,7 +81,7 @@ public final class FrameController implements Rootable {
     
     void transitionTEST() {
     	
-  
+    	/*
     	ParallelTransition pt3 = new ParallelTransition(                                          
 				Fade.getFadeTransition(fwrdBtn, Fade.FadeOption.FADE_OUT, 300),
 				Fade.getFadeTransition(backBtn, Fade.FadeOption.FADE_OUT, 300));
@@ -88,7 +94,9 @@ public final class FrameController implements Rootable {
     	
     	SequentialTransition st = new SequentialTransition(pt3, pt4);
     	st.play();
+    	*/
     	
+    	///Fade.getFadeTransition(dialogSP, Fade.FadeOption.FADE_IN, 300).play(); //fade in view
     }
     
     

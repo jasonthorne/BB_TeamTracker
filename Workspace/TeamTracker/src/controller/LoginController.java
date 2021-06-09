@@ -65,12 +65,12 @@ public final class LoginController implements Rootable {
   	private void moveToFrameView(){ 
   		
   		//fade out transition, adding frame view scene to stage on finish:
-  		FadeTransition fadeOut = Fade.getFadeTransition(dialogSP, Fade.FadeOption.FADE_OUT, 400);
+  		FadeTransition fadeOut = Fade.getFadeTransition(dialogSP, Fade.FadeOption.FADE_OUT, 300);
   		fadeOut.setOnFinished(event -> {
   			
   	  		Parent frameRoot = Rootable.getRoot(frameCtrlr, View.FRAME.getPath()); //get frame root
   			stage.setScene(new Scene(frameRoot)); //add new scene with root to stage
-  			Fade.getFadeTransition(frameRoot, Fade.FadeOption.FADE_IN, 400).play(); //fade in view
+  			Fade.getFadeTransition(frameRoot, Fade.FadeOption.FADE_IN, 300).play(); //fade in view
   		});
   	  		
   		fadeOut.play(); //play transition
