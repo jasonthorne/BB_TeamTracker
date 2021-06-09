@@ -1,6 +1,8 @@
 package animation;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.ParallelTransition;
+import javafx.animation.SequentialTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -40,7 +42,8 @@ public interface Fadeable {
 	
 	
 	//look at executor servicxes etc for multi fading of this method when necessary (title and page for example! ++++++++++++++++++++++++++)
-	static void fadeOutToNew(/*Node currNode, Node newNode,*/ Thread thread) {
+	//static void fadeOutToNew(/*Node currNode, Node newNode,*/ Thread thread) {
+	static void fadeOutToNew(/*Node currNode, Node newNode,*/ Runnable runnable) {
 		//add node to fade transition of 300ms:
 		FadeTransition ft = new FadeTransition(Duration.millis(300), new StackPane());
 		/*FadeTransition ft = new FadeTransition(Duration.millis(300), currNode);
@@ -52,10 +55,28 @@ public interface Fadeable {
 		ft.setOnFinished(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent arg0) {
-				thread.start();
+				//thread.start();
+				
+				new Thread(runnable).start();
 			}
 		});
 		
 		ft.play(); //play transition
 	}
+	
+	
+	
+	
+	
+	
+	static void parallelSequentialFades(ParallelTransition ...pts) {
+		
+		SequentialTransition st = new SequentialTransition(pts);
+		st.setCycleCount(1); //how many times the animation should happen (cycle)
+		st.setAutoReverse(false); //whether animation reverses on alternating cycles*/
+		st.play(); //play transition
+	}
+	
+	
+	
 }
