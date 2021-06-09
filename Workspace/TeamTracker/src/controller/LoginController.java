@@ -61,6 +61,8 @@ public final class LoginController implements Rootable {
     //=================================================
   	private void showFrameView(){ //THIS IS LOGIN METHOD :P 
   		
+  		//FADES HERE :P
+  		
   		//add frame.fxml root to scene:
   		Scene scene = new Scene(Rootable.getRoot(frameCtrlr, View.FRAME.getPath()));
   		stage.setScene(scene); //add scene to stage

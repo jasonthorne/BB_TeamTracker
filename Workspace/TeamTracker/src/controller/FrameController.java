@@ -6,7 +6,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 
-import animation.Fadeable;
+import animation.Fade;
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
 import javafx.animation.SequentialTransition;
@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import view.View;
 
-public final class FrameController implements Rootable, Fadeable {
+public final class FrameController implements Rootable {
 	
 	//root fxml element & children:
     @FXML private BorderPane rootBP;
@@ -57,9 +57,9 @@ public final class FrameController implements Rootable, Fadeable {
     	
     	int a = 5;
     	///Thread thread = new Thread(() -> System.out.println("Running"));
-    	//Fadeable.fadeOutToNew(new Thread(() -> System.out.println(a)));
+    	//Fade.fadeOutToNew(new Thread(() -> System.out.println(a)));
     	
-    	Fadeable.fadeOutToNew(new Thread(() -> System.out.println(a)));
+    	//Fade.fadeOutToNew(new Thread(() -> System.out.println(a)));
     	
     	
     	
@@ -73,48 +73,19 @@ public final class FrameController implements Rootable, Fadeable {
     
     void transitionTEST() {
     	
-    	System.out.println("fgfgfg");
+  
+    	ParallelTransition pt3 = new ParallelTransition(                                          
+				Fade.getFadeTransition(fwrdBtn, Fade.FadeOption.FADE_OUT, 300),
+				Fade.getFadeTransition(backBtn, Fade.FadeOption.FADE_OUT, 300));
     	
-    	//frwrd
-    	FadeTransition FRWRD = new FadeTransition(Duration.millis(300), fwrdBtn);
-    	FRWRD.setFromValue(1); //set starting opacity value
-    	FRWRD.setToValue(0); //set end opacity value
-    	FRWRD.setCycleCount(1); //how many times the animation should happen (cycle)
-    	FRWRD.setAutoReverse(false); //whether animation reverses on alternating cycles
+    	pt3.setOnFinished(event -> notifyBtn.setStyle("fx-background-color: #FFF"));
+    
+    	ParallelTransition pt4 = new ParallelTransition(                                          
+    			Fade.getFadeTransition(fwrdBtn, Fade.FadeOption.FADE_IN, 300),
+				Fade.getFadeTransition(backBtn, Fade.FadeOption.FADE_IN, 300));
     	
-    	//back
-    	FadeTransition BACK = new FadeTransition(Duration.millis(300), backBtn);
-    	BACK.setFromValue(1); //set starting opacity value
-    	BACK.setToValue(0); //set end opacity value
-    	BACK.setCycleCount(1); //how many times the animation should happen (cycle)
-    	BACK.setAutoReverse(false); //whether animation reverses on alternating cycles
-    	
-    	ParallelTransition pt = new ParallelTransition(FRWRD, BACK);
-    	//pt.setCycleCount(1);
-    	//pt.play();
-    	
-    	
-    	//frwrd
-    	FadeTransition FRWRD2 = new FadeTransition(Duration.millis(300), fwrdBtn);
-    	FRWRD2.setFromValue(0); //set starting opacity value
-    	FRWRD2.setToValue(1); //set end opacity value
-    	FRWRD2.setCycleCount(1); //how many times the animation should happen (cycle)
-    	FRWRD2.setAutoReverse(false); //whether animation reverses on alternating cycles
-    	
-    	//back
-    	FadeTransition BACK2 = new FadeTransition(Duration.millis(300), backBtn);
-    	BACK2.setFromValue(0); //set starting opacity value
-    	BACK2.setToValue(1); //set end opacity value
-    	BACK2.setCycleCount(1); //how many times the animation should happen (cycle)
-    	BACK2.setAutoReverse(false); //whether animation reverses on alternating cycles
-    	
-    	ParallelTransition pt2 = new ParallelTransition(FRWRD2, BACK2);
-    	//pt.setCycleCount(1);
-    	
-    	SequentialTransition st = new SequentialTransition(pt, pt2);
-    	//st.setCycleCount(1);
+    	SequentialTransition st = new SequentialTransition(pt3, pt4);
     	st.play();
-    	
     	
     }
     

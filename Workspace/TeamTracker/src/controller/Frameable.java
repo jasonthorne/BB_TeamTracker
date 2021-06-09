@@ -11,7 +11,7 @@ public interface Frameable {
 	
 	//change to another view:
 	static void changeView(Parent thisRoot, Frameable nextFrameable) {
-		///////////////Fadeable.fade(thisRoot, FadeOption.FADE_OUT); //fade out this root
+		///////////////Fade.fade(thisRoot, FadeOption.FADE_OUT); //fade out this root
 		////////////FrameController.getFrameCtrlr().moveFwrd(nextFrameable); //move to nextFrameable
 	}
 	

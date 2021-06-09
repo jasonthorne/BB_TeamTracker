@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import com.jfoenix.controls.JFXButton;
 
-import animation.Fadeable;
+import animation.Fade;
 import dialog.Dialog;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
