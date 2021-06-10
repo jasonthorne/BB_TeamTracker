@@ -33,7 +33,8 @@ public class LeaguesController implements Rootable, Frameable{
     
     void testShowDialog() {
     	FrameController.getFrameCtrlr().ShowDialog(new DialogController(
-    			new Pane(new Label(Dialog.BodyText.EMPTY_NAME_OR_PSWD.toString())), 
+    			new Pane(new Label(Dialog.BodyText.EMPTY_NAME_OR_PSWD.toString())),
+    			true, 
 				Dialog.ButtonText.OK));
     }
     

@@ -12,8 +12,8 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-		
-    	//get login controller:
+    	
+		//get login controller:
 		LoginController loginCtrlr = LoginController.getLoginCtrlr();
 		//show its stage:
 		loginCtrlr.showStage();

@@ -30,13 +30,13 @@ public class DialogController implements Rootable {
     
     //----------------------------constructors:----------------------
     
-   	DialogController(Pane headingP, Pane bodyP, ButtonText closeBtnTxt, JFXButton ...btns){
-   		this(bodyP, closeBtnTxt, btns);
+   	DialogController(Pane headingP, Pane bodyP, boolean isFullScreen, ButtonText closeBtnTxt, JFXButton ...btns){
+   		this(bodyP, isFullScreen, closeBtnTxt, btns);
    		contentDL.setHeading(headingP); //add headings pane
    	}
    	
-   	DialogController(Pane bodyP, ButtonText closeBtnTxt, JFXButton ...btns){
-   		this(bodyP);
+   	DialogController(Pane bodyP, boolean isFullScreen, ButtonText closeBtnTxt, JFXButton ...btns){
+   		this(bodyP, isFullScreen);
    		closeBtn.setText(closeBtnTxt.toString()); //set close button text
    		
    		HBox hBox = new HBox(closeBtn); //make HBox with close button
@@ -45,13 +45,16 @@ public class DialogController implements Rootable {
 			btn.addEventHandler(ActionEvent.ACTION, event-> rootDialog.close());
 			hBox.getChildren().add(btn); //add button to HBox
 		}
-   
+		
    		contentDL.setActions(hBox); //add HBox to content
    		rootDialog.setOverlayClose(false); //prevent close on outer click
    	}
    	
-   	DialogController(Pane bodyP){
+   	DialogController(Pane bodyP, boolean isFullScreen){
    		contentDL.setBody(bodyP); //add body pane
+   		if(isFullScreen){ //if full screen, set size of content to dialog:
+   			contentDL.setPrefSize(rootDialog.getPrefWidth(),rootDialog.getPrefHeight());
+		}
    	}
    	
    	//---------------------------------------------------------------

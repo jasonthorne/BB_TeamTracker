@@ -1,12 +1,7 @@
 package animation;
 
 import javafx.animation.FadeTransition;
-import javafx.animation.ParallelTransition;
-import javafx.animation.SequentialTransition;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
-import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 /** fades nodes in/out of view */
@@ -31,8 +26,8 @@ public interface Fade {
 	}
 	
 	//return fade transition of given values:
-	static FadeTransition getFadeTransition(Node node, FadeOption fadeOption, int millis) {
-		//add node to fade transition of x milliseconds:
+	static FadeTransition getFadeTransition(Node node, FadeOption fadeOption, double millis) {
+		//add node to fade transition of given milliseconds:
 		FadeTransition ft = new FadeTransition(Duration.millis(millis), node);
 		ft.setFromValue(fadeOption.fromVal); //set starting opacity value
 		ft.setToValue(fadeOption.toVal); //set end opacity value

@@ -41,8 +41,9 @@ public final class LoginController implements Rootable {
   	
   	//login.fxml controller singleton:
   	private static LoginController singleLoginCtrlr = null;
+  	
   	//frame.fxml controller:
-    private final FrameController frameCtrlr = FrameController.getFrameCtrlr();
+  	private final FrameController frameCtrlr = FrameController.getFrameCtrlr();
   	
   	//private constructor for singleton:
     private LoginController(){
@@ -65,14 +66,14 @@ public final class LoginController implements Rootable {
   	private void moveToFrameView(){ 
   		
   		//fade out transition, adding frame view scene to stage on finish:
-  		FadeTransition fadeOut = Fade.getFadeTransition(dialogSP, Fade.FadeOption.FADE_OUT, 300);
+  		FadeTransition fadeOut = Fade.getFadeTransition(dialogSP, Fade.FadeOption.FADE_OUT, 200);
   		fadeOut.setOnFinished(event -> {
   			
   	  		Parent frameRoot = Rootable.getRoot(frameCtrlr, View.FRAME.getPath()); //get frame root
   			stage.setScene(new Scene(frameRoot)); //add new scene with root to stage
-  			Fade.getFadeTransition(frameRoot, Fade.FadeOption.FADE_IN, 300).play(); //fade in view
+  			Fade.getFadeTransition(frameRoot, Fade.FadeOption.FADE_IN, 200).play(); //fade in view
+  			
   		});
-  	  		
   		fadeOut.play(); //play transition
   	}
   	
@@ -89,7 +90,7 @@ public final class LoginController implements Rootable {
 		//if fields aren't empty: 
 		if(!name.equals("") && !password.equals("")) {
 			
-		}else { //name and-or password was empty:
+		}else{ //name and-or password was empty:
 			showAddNameAndPswd(); //inform user
 		} 
   	}
@@ -103,7 +104,7 @@ public final class LoginController implements Rootable {
 		//if fields aren't empty: 
 		if(!name.equals("") && !password.equals("")) {
 			
-		}else { //name and-or password was empty:
+		}else{ //name and-or password was empty:
 			showAddNameAndPswd(); //inform user
 		}
   	}
@@ -111,8 +112,9 @@ public final class LoginController implements Rootable {
   	//dialog to add name & password:
   	private void showAddNameAndPswd() {
 		new DialogController(
-				new Pane(new Label(Dialog.BodyText.EMPTY_NAME_OR_PSWD.toString())), 
-				Dialog.ButtonText.OK).show(dialogSP);
+				new Pane(new Label(Dialog.BodyText.EMPTY_NAME_OR_PSWD.toString())),
+				false/*, 
+				Dialog.ButtonText.OK*/).show(dialogSP);
   	}
   	
 }
