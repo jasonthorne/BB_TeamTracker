@@ -1,6 +1,7 @@
 package application;
 
 import controller.LoginController;
+import controller.SplashController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -13,10 +14,17 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
     	
+		/*
 		//get login controller:
 		LoginController loginCtrlr = LoginController.getLoginCtrlr();
 		//show its stage:
 		loginCtrlr.showStage();
+		*/
+		
+		//get login controller:
+		SplashController splashCtrlr = SplashController.getSplashCtrlr();
+		//show its stage:
+		splashCtrlr.showStage();
 	}
 }
 

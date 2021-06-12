@@ -9,7 +9,8 @@ public enum View {
 	DIALOG("dialog.fxml"),
 	FRAME("frame.fxml"),
 	LEAGUES("leagues.fxml","Leagues"),
-	LOGIN("login.fxml");
+	LOGIN("login.fxml"),
+	SPLASH("splash.fxml");
 	
 	private String path = "/".concat(this.getClass().getPackage().getName()).concat("/"); //path 
 	private Optional<String>optTitle = Optional.empty(); //optional title
