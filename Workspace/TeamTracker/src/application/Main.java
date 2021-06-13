@@ -1,7 +1,7 @@
 package application;
 
 import controller.LoginController;
-import controller.SplashController;
+import controller.PreloaderController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -22,7 +22,7 @@ public class Main extends Application {
 		*/
 		
 		//get login controller:
-		SplashController splashCtrlr = SplashController.getSplashCtrlr();
+		PreloaderController splashCtrlr = PreloaderController.getSplashCtrlr();
 		//show its stage:
 		splashCtrlr.showStage();
 	}

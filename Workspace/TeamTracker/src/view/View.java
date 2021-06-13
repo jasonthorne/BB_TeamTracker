@@ -10,7 +10,7 @@ public enum View {
 	FRAME("frame.fxml"),
 	LEAGUES("leagues.fxml","Leagues"),
 	LOGIN("login.fxml"),
-	SPLASH("splash.fxml");
+	PRELOADER("preloader.fxml");
 	
 	private String path = "/".concat(this.getClass().getPackage().getName()).concat("/"); //path 
 	private Optional<String>optTitle = Optional.empty(); //optional title

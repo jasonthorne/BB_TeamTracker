@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import view.View;
 
-public class SplashController implements Rootable {
+public class PreloaderController implements Rootable {
 	
 	@FXML private AnchorPane rootAP;
     @FXML private Label testLbl;
@@ -26,21 +26,21 @@ public class SplashController implements Rootable {
   	private final Stage stage = new Stage(); //stage
   	
   	//splash.fxml controller singleton:
-  	private static SplashController singleSplashCtrlr = null;
+  	private static PreloaderController singleSplashCtrlr = null;
   	
   	//login.fxml controller:
   	private final LoginController loginCtrlr = LoginController.getLoginCtrlr();
   	
   	//private constructor for singleton:
-    private SplashController(){
-    	Scene scene = new Scene(Rootable.getRoot(this, View.SPLASH.getPath())); //add root to scene
+    private PreloaderController(){
+    	Scene scene = new Scene(Rootable.getRoot(this, View.PRELOADER.getPath())); //add root to scene
     	stage.setScene(scene); //add scene to stage
     }
   	
   	//get splash controller singleton:
-    public static SplashController getSplashCtrlr() {
+    public static PreloaderController getSplashCtrlr() {
     	//create singleton if necessary:
-        if (singleSplashCtrlr == null) { singleSplashCtrlr = new SplashController(); }
+        if (singleSplashCtrlr == null) { singleSplashCtrlr = new PreloaderController(); }
         return singleSplashCtrlr; 
     }
   	
