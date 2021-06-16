@@ -14,17 +14,17 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
     	
-		/*
+		
 		//get login controller:
 		LoginController loginCtrlr = LoginController.getLoginCtrlr();
 		//show its stage:
 		loginCtrlr.showStage();
-		*/
+		
 		
 		//get login controller:
-		PreloaderController splashCtrlr = PreloaderController.getSplashCtrlr();
+		/////PreloaderController splashCtrlr = PreloaderController.getSplashCtrlr();
 		//show its stage:
-		splashCtrlr.showStage();
+		/////splashCtrlr.showStage();
 	}
 }
 
