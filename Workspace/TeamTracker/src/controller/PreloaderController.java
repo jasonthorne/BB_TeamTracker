@@ -26,7 +26,7 @@ public class PreloaderController implements Rootable {
   	private final Stage stage = new Stage(); //stage
   	
   	//splash.fxml controller singleton:
-  	private static PreloaderController singleSplashCtrlr = null;
+  	private static PreloaderController singlePreloaderCtrlr = null;
   	
   	//login.fxml controller:
   	private final LoginController loginCtrlr = LoginController.getLoginCtrlr();
@@ -38,10 +38,10 @@ public class PreloaderController implements Rootable {
     }
   	
   	//get splash controller singleton:
-    public static PreloaderController getSplashCtrlr() {
+    public static PreloaderController getPreloaderCtrlr() {
     	//create singleton if necessary:
-        if (singleSplashCtrlr == null) { singleSplashCtrlr = new PreloaderController(); }
-        return singleSplashCtrlr; 
+        if (singlePreloaderCtrlr == null) { singlePreloaderCtrlr = new PreloaderController(); }
+        return singlePreloaderCtrlr; 
     }
   	
     //show stage (if not):
