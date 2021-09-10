@@ -3,6 +3,9 @@ package application;
 import controller.LoginController;
 import controller.PreloaderController;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -16,15 +19,17 @@ public class Main extends Application {
     	
 		
 		//get login controller:
-		LoginController loginCtrlr = LoginController.getLoginCtrlr();
+		//LoginController loginCtrlr = LoginController.getLoginCtrlr();
 		//show its stage:
-		loginCtrlr.showStage();
+		//loginCtrlr.showStage();
 		
 		
 		//get login controller:
-		/////PreloaderController splashCtrlr = PreloaderController.getSplashCtrlr();
+		PreloaderController splashCtrlr = PreloaderController.getPreloaderCtrlr();
 		//show its stage:
-		/////splashCtrlr.showStage();
+		splashCtrlr.showStage();
+		
+		
 	}
 }
 

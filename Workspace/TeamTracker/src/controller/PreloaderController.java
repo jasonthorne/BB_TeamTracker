@@ -29,7 +29,7 @@ public class PreloaderController implements Rootable {
   	private static PreloaderController singlePreloaderCtrlr = null;
   	
   	//login.fxml controller:
-  	private final LoginController loginCtrlr = LoginController.getLoginCtrlr();
+  	private final LoginController loginCtrlr = LoginController.getLoginCtrlr(); ////+++++++++remove :P
   	
   	//private constructor for singleton:
     private PreloaderController(){

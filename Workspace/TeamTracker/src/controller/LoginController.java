@@ -19,7 +19,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public final class LoginController implements Rootable {
+public final class LoginController /*extends Preloader*/ implements Rootable {
 	
 	//root fxml element & children:
 	@FXML private AnchorPane rootAP;
@@ -86,7 +86,7 @@ public final class LoginController implements Rootable {
 	  	//trim name & password fields:
 		String name = nameTxtFld.getText().trim();
 		String password = passwordFld.getText().trim();
-  		
+		
 		//if fields aren't empty: 
 		if(!name.equals("") && !password.equals("")) {
 			

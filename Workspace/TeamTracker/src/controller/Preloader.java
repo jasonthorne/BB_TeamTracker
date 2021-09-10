@@ -1,7 +1,10 @@
 package controller;
 
-public interface Preloadable {
+public abstract class Preloader {
 	
 	PreloaderController preloaderCtrlr = PreloaderController.getPreloaderCtrlr();
 
 }
+
+
+//https://www.genuinecoder.com/javafx-splash-screen-loading-screen/
