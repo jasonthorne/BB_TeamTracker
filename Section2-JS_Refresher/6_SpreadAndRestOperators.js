@@ -1,6 +1,6 @@
 
 // SPREAD OPERATOR:
-//Spread is used to split up array elements OR object properties
+//Spread is used to split up array elements OR object properties.
 
 //----------splitting array elements:-------------
 const oldArray = [1,2,3];
@@ -23,5 +23,12 @@ console.log(newObj);
 
 //===================================================================
 
-// REST OPERATORp;
+// REST OPERATOR:
+//used to merge a list of funtion arguements INTO an arrray.
 
+
+function sortArgs(...myArgs){
+    return myArgs.sort();
+}
+
+console.log(sortArgs(3,1,2)); //pass unordered args into function
