@@ -1,18 +1,25 @@
+const num1 = 1; //primitive type
+const num2 = num1 //reference type. this stores a COPY of num1
 
-// Extract array elements or object properties and store them as variables
+console.log(num2);
 
-//ARRAY DESTRUCTURING:
 
-myArray = ["a","b"];
-[destructedA, destructedB] = myArray; //+++++++ORDER defines which property we take
+const obj1 = {
+    myVar: "yo"
+};
 
-console.log("my array: ", myArray);
-console.log("destructed a:", destructedA);
-console.log("destructed b:", destructedB);
+const obj2 = obj1; //holds REFERENCE to obj1
 
-//OBJECT DESTRUCTURING:
+obj1.myVar = "dawg";
 
-//myObj = {myA: "a", myB: "b"};
-//APPARENTLY THIS WORKS :P +++++++++++++++++++ #Not working for him either though :D 
-/*{myB} = {myA:"a", myB:"b"}; //++++++++++++NAME of property defines which property we take
-console.log("my b:", myB);*/
+console.log(obj2); //shows dawg (obv :P)
+
+
+//make proper copy (ie new object, not sharing reference):
+const obj3 = {
+    ...obj1 //spread opperator copies all properties and their values from obj1
+};
+
+obj1.myVar = "woohoo!";
+
+console.log(obj3); //still shows dawg, as not pointing to obj1
