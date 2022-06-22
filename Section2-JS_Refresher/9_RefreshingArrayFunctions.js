@@ -8,4 +8,3 @@ const dblNumArray = numArray.map((element) => {
 });
 
 console.log(dblNumArray); // print array with doubled elements
-
