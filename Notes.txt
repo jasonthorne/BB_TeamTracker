@@ -1,0 +1,20 @@
+
+create react (a react project shell)
+https://create-react-app.dev/
+
+//create app called my-app:
+npx create-react-app my-app
+
+//cd into app folder:
+cd my-app
+
+//start app in local server (use menu > terminal in VS code):
+npm start
+
+//stop app in local server:
+Ctrl + C
+
+--------------
+add all dependendcies to project folder of udemy shared shell project:
+npm install 
+
