@@ -12,7 +12,7 @@ This is an object holding all of the recieved attributes as properties.
 */
 function ExpenseItem(props){ //convention is to repeat the filename
     /*
-    now bundled into its own component:
+    now bundled into its own component (ExpenseDate):
     const month = props.date.toLocaleString('en-US', { month: 'long'});
     const day = props.date.toLocaleString('en-US', { day: '2-digit'});
     const year = props.date.getFullYear();*/
