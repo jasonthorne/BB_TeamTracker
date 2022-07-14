@@ -2,6 +2,7 @@
 //imports:
 import './ExpenseItem.css'; //add stylesheet for this component's jsx
 import ExpenseDate from './ExpenseDate'; //import ExpenseDate component
+import Card from './Card'; //import Card component
 
 /*
 A component is just a function, returning JSX html code 
@@ -18,13 +19,13 @@ function ExpenseItem(props){ //convention is to repeat the filename
     const year = props.date.getFullYear();*/
 
     return (
-        <div className='expense-item'>
+        <Card className='expense-item'>
             <ExpenseDate date={props.date} />
             <div className='expense-item__description'>
                 <h2>{props.title}</h2>
             </div>
             <div className='expense-item__price'>${props.amount}</div>
-        </div>
+        </Card>
     );
 } 
 // NOTE that ONE root html element must be returned (div in this case)
