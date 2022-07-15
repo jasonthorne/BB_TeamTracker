@@ -1,7 +1,7 @@
 //imports:
 import './Expenses.css'; //add stylesheet for this component's jsx
 import ExpenseItem from './ExpenseItem'; //import ExpenseDate component
-import Card from './Card';
+import Card from '../UI/Card';
 
 function Expenses(props){
     return (

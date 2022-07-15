@@ -6,7 +6,7 @@ MUST start with capital. lowercase html tags  are read as standar html,
 uppercase are read by react as custom components 
 */
 
-import Expenses from './components/Expenses'; //+++++++++ NOTE: NO .js extension
+import Expenses from './components/Expenses/Expenses'; //+++++++++ NOTE: NO .js extension
 
 function App() {
 

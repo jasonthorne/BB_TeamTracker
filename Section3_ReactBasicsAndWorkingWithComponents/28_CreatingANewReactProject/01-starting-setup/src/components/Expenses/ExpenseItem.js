@@ -2,7 +2,7 @@
 //imports:
 import './ExpenseItem.css'; //add stylesheet for this component's jsx
 import ExpenseDate from './ExpenseDate'; //import ExpenseDate component
-import Card from './Card'; //import Card component
+import Card from '../UI/Card'; //import Card component
 
 /*
 A component is just a function, returning JSX html code 
