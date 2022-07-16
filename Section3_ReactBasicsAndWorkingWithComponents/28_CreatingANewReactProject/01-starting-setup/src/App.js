@@ -8,7 +8,7 @@ uppercase are read by react as custom components
 
 import Expenses from './components/Expenses/Expenses'; //+++++++++ NOTE: NO .js extension
 
-function App() {
+const App = () => { // alternative function ++++++++++++ (arrow function)
 
   const expenses = [ //list of objects for expenses:
     { id: 'e1', title: 'Toilet Paper', amount: 94.12, date: new Date(2020, 7, 14)},
