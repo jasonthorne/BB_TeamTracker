@@ -18,5 +18,5 @@ Ctrl + C
 add all dependendcies to project folder of udemy shared shell project:
 Add git ignore file from react project shell first (git add .gitignore) Then:
 npm install 
-------------------
+---------------
 
