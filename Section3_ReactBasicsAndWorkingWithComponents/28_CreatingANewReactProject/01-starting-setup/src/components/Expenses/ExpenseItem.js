@@ -25,13 +25,16 @@ function ExpenseItem(props){ //convention is to repeat the filename
                 <h2>{props.title}</h2>
             </div>
             <div className='expense-item__price'>${props.amount}</div>
+            <button onClick={()=>{console.log("yo dawg!")}}>Change Title</button>
         </Card>
     );
 } 
 // NOTE that ONE root html element must be returned (div in this case)
 // NOTE 'className' instead of 'class' for adding css stling 
 // NOTE props.something has to equal the name given to componment attribute in App.js
-
+// NOTE 'onCick' is adding a react click event listener REMEBER - events take functions :P
+// NOTE: if passing an existing function to the listener, just POINT at it, dont invoke it: 'doThis' 'dontDoThis()'
+// NOTE Name the above function somethingHandler if its an event handler +++++++++++
 
 //++++++++++++++ REMEMBER - function neeeds exported - THEN imported in another file to use: 
 export default ExpenseItem; //export this function as the 'default' for this file
