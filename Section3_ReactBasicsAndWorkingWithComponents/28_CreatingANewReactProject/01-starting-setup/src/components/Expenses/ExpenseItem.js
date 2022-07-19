@@ -1,5 +1,6 @@
 
 //imports:
+import React, {useState} from 'react'; //+++++++++++++++IMPORTANT FOR CHANGING STATE (inside component function) :P 
 import './ExpenseItem.css'; //add stylesheet for this component's jsx
 import ExpenseDate from './ExpenseDate'; //import ExpenseDate component
 import Card from '../UI/Card'; //import Card component
@@ -18,10 +19,19 @@ function ExpenseItem(props){ //convention is to repeat the filename
     const day = props.date.toLocaleString('en-US', { day: '2-digit'});
     const year = props.date.getFullYear();*/
 
-    let title = props.title;
+    /*
+    IMPORTANT+++++++++++++++++:
+    + a react 'hook' (all start with 'use') called for changing title state upon click. 
+    + MUST only be called within react component functions.
+    + needs passed a 'default state'
+    RETURNS AND ARRAY WITH 2 THINGS:
+        - var holding the current value
+        - a function for changing the value
+    */
+    const [title, setTitle] = useState(props.title); //making 2 varables from array returned from useState() +++++++++
 
     const clickHandler = () =>{
-        title = "yo";
+      setTitle('yo!'); //call setTitle to change value of title ++++++++
     };
 
     return (
