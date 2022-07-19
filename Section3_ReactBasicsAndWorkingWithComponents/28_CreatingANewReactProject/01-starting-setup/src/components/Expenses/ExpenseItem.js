@@ -18,14 +18,20 @@ function ExpenseItem(props){ //convention is to repeat the filename
     const day = props.date.toLocaleString('en-US', { day: '2-digit'});
     const year = props.date.getFullYear();*/
 
+    let title = props.title;
+
+    const clickHandler = () =>{
+        title = "yo";
+    };
+
     return (
         <Card className='expense-item'>
             <ExpenseDate date={props.date} />
             <div className='expense-item__description'>
-                <h2>{props.title}</h2>
+                <h2>{title}</h2>
             </div>
             <div className='expense-item__price'>${props.amount}</div>
-            <button onClick={()=>{console.log("yo dawg!")}}>Change Title</button>
+            <button onClick={clickHandler}>Change Title</button>
         </Card>
     );
 } 
