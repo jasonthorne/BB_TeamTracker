@@ -7,6 +7,8 @@ uppercase are read by react as custom components
 */
 
 import Expenses from './components/Expenses/Expenses'; //+++++++++ NOTE: NO .js extension
+import NewExpense from './components/NewExpense/NewExpense'; 
+
 
 const App = () => { // alternative function ++++++++++++ (arrow function)
 
@@ -20,7 +22,7 @@ const App = () => { // alternative function ++++++++++++ (arrow function)
   //setting properties for ExpenseItem components, using expenses array above: ++++++++
   return (
     <div>
-      <h2>Let's get started dawg!</h2>
+      <NewExpense />
       <Expenses expenses={expenses} />
     </div>
   );

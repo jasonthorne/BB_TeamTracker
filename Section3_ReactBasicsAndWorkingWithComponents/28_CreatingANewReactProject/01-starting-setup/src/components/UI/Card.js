@@ -7,7 +7,7 @@ function Card(props){
     //++++++++++++++++++++++++++++++++++++++++++++++++IMPORTANT :P
     //props.children DOESNT need passed to the component
     //it sets all child items within card to be returned, and displayed 
-    return <div className={classes}>{props.children}</div>;
+    return <div className={classes}>{props.children}</div>; //set classnames and return children props
 }
 
 export default Card;

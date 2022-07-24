@@ -18,6 +18,9 @@ const ExpenseForm = () =>{ //instead of function like in other examples (both ob
                 <label>Date</label>
                 <input type="date" min="2019-01-01" max="2022-12-31"/>
             </div>
+            <div className='new-expense__actions'>
+                <button type="submit">Add Expense</button>
+            </div>
         </form>
     );
 };
