@@ -3,8 +3,9 @@ import './ExpenseForm.css'; //add stylesheet for this component's jsx
 
 const ExpenseForm = () =>{ //instead of function like in other examples (both obv work)
 
-    const titleChangeHandler = () =>{ //change listener for title label input +++REMEMBER: we just POINT at the function with the listener. dont execute it there :P
-        console.log("sup dawg!");
+    //change listener for title label input +++REMEMBER: we just POINT at the function with the listener. dont execute it there :P
+    const titleChangeHandler = (event) =>{ //EVENT object is passed to this automatically on change
+        console.log(event.target.value); //get value of input entered +++++++
     };
 
     return (
