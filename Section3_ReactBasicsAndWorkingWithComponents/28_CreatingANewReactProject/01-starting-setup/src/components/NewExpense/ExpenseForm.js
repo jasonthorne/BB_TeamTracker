@@ -1,11 +1,16 @@
 
 import './ExpenseForm.css'; //add stylesheet for this component's jsx
+import React, {useState} from 'react'; // +++++ FOR STORING STATE OF INPUTTED VALUES INCASE COMPONENT IS EVER CALLED AGAIN 
 
 const ExpenseForm = () =>{ //instead of function like in other examples (both obv work)
+
+    //grabbing a var for entered title (set as empty initially) and an object for updating title from useState()
+    const [enteredTitle, setEnteredTitle] = useState(''); //call usestate 
 
     //change listener for title label input +++REMEMBER: we just POINT at the function with the listener. dont execute it there :P
     const titleChangeHandler = (event) =>{ //EVENT object is passed to this automatically on change
         console.log(event.target.value); //get value of input entered +++++++
+        setEnteredTitle(event.target.value); //set enteredTitle var as value of entered input +++++
     };
 
     return (
