@@ -4,28 +4,55 @@ import React, {useState} from 'react'; // +++++ FOR STORING STATE OF INPUTTED VA
 
 const ExpenseForm = () =>{ //instead of function like in other examples (both obv work)
 
+    //==========USESTATES: ==========
     //useState for title:
     //grabbing a var for entered title (set as empty initially) and an object for updating title from useState()
-    const [enteredTitle, setEnteredTitle] = useState(''); //call usestate 
+    ///////////const [enteredTitle, setEnteredTitle] = useState(''); //call usestate 
+
+    //useState for amount:
+    /////////////const [enteredAmount, setEnteredAmount] = useState(''); //call usestate
+    //useState for date:
+    /////////////const [enteredDate, setEnteredDate] = useState(''); //call usestate
+
+    //Single useState with a passed object:
+    const [userInput, setUserInput] = useState({ 
+        enteredTitle: '',
+        enteredAmount: '',
+        enteredDate: '',
+    });
+
+
+    //==============HANDLERS FOR USESTATES: ============
 
     //change listener for title label input +++REMEMBER: we just POINT at the function with the listener. dont execute it there :P
     const titleChangeHandler = (event) =>{ //EVENT object is passed to this automatically on change
         console.log(event.target.value); //get value of input entered +++++++
-        setEnteredTitle(event.target.value); //set enteredTitle var as value of entered input +++++
+        //////////////setEnteredTitle(event.target.value); //set enteredTitle var as value of entered input +++++
+        setUserInput({
+            //++++++++++++++++spread below is needed as othewrwise amount and date would revert to their defualt values of '' 
+            ...userInput, //++++++++++++++++++using spread opperator to set all keys of userInput with their values.
+            enteredTitle: event.target.value //++++++++THEN overriding title key with new value
+        });
     };
 
-    //useState for amount:
-    const [enteredAmount, setEnteredAmount] = useState(''); //call usestate
     const amountChangeHandler = (event) =>{
         console.log(event.target.value);
-        setEnteredAmount(event.target.value);
+        ///////////setEnteredAmount(event.target.value);
+        setUserInput({
+            //++++++++++++++++spread below is needed as othewrwise amount and date would revert to their defualt values of '' 
+            ...userInput, //++++++++++++++++++using spread opperator to set all keys of userInput with their values.
+            enteredAmount: event.target.value //++++++++THEN overriding title key with new value
+        });
     }
 
-    //useState for date:
-    const [enteredDate, setEnteredDate] = useState(''); //call usestate
     const dateChangeHandler = (event) =>{
         console.log(event.target.value);
-        setEnteredDate(event.target.value);
+        ////////////////setEnteredDate(event.target.value);
+        setUserInput({
+            //++++++++++++++++spread below is needed as othewrwise amount and date would revert to their defualt values of '' 
+            ...userInput, //++++++++++++++++++using spread opperator to set all keys of userInput with their values.
+            enteredDate: event.target.value //++++++++THEN overriding title key with new value
+        });
     }
 
     return (
