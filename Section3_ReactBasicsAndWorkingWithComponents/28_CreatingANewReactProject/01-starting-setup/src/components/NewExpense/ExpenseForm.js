@@ -7,19 +7,19 @@ const ExpenseForm = () =>{ //instead of function like in other examples (both ob
     //==========USESTATES: ==========
     //useState for title:
     //grabbing a var for entered title (set as empty initially) and an object for updating title from useState()
-    ///////////const [enteredTitle, setEnteredTitle] = useState(''); //call usestate 
+    const [enteredTitle, setEnteredTitle] = useState(''); //call usestate 
 
     //useState for amount:
-    /////////////const [enteredAmount, setEnteredAmount] = useState(''); //call usestate
+    const [enteredAmount, setEnteredAmount] = useState(''); //call usestate
     //useState for date:
-    /////////////const [enteredDate, setEnteredDate] = useState(''); //call usestate
+    const [enteredDate, setEnteredDate] = useState(''); //call usestate
 
     //Single useState with a passed object:
-    const [userInput, setUserInput] = useState({ 
+    /*const [userInput, setUserInput] = useState({ 
         enteredTitle: '',
         enteredAmount: '',
         enteredDate: '',
-    });
+    });*/
 
 
     //==============HANDLERS FOR USESTATES: ============
@@ -27,32 +27,43 @@ const ExpenseForm = () =>{ //instead of function like in other examples (both ob
     //change listener for title label input +++REMEMBER: we just POINT at the function with the listener. dont execute it there :P
     const titleChangeHandler = (event) =>{ //EVENT object is passed to this automatically on change
         console.log(event.target.value); //get value of input entered +++++++
-        //////////////setEnteredTitle(event.target.value); //set enteredTitle var as value of entered input +++++
-        setUserInput({
+       setEnteredTitle(event.target.value); //set enteredTitle var as value of entered input +++++
+       
+       //+++++++++++++++++SIMPLE WAY OF UPDATING VALUE WITH ONE SHARED STATE:
+        /// setUserInput({
             //++++++++++++++++spread below is needed as othewrwise amount and date would revert to their defualt values of '' 
-            ...userInput, //++++++++++++++++++using spread opperator to set all keys of userInput with their values.
-            enteredTitle: event.target.value //++++++++THEN overriding title key with new value
-        });
+          //  ...userInput, //++++++++++++++++++using spread opperator to set all keys of userInput with their values.
+          //  enteredTitle: event.target.value //++++++++THEN overriding title key with new value
+        //});
+
+        //+++++++++++++++++BETTER WAY OF UPDATING VALUE WITH ONE SHARED STATE:
+        //better because react SCHEDULES state changeds, it doesnt perform them instantly. Therefore youy could be depending onm outdated values with your snapshot of this state.
+        //prfevious state is passed by default as arg:
+        //+++++++++SO IF YOUR STATE UPDATE DEPENDS ON YOUR PREVIOUS STATE< YOU SHOULD DEFINITATELY SE THIS METHOD INSTEAD +++++
+        /*setUserInput((previousState) =>{
+            return {...previousState, enteredTitle: event.target.value} //return obj with previous state and updated value
+        });*/
+            
     };
 
     const amountChangeHandler = (event) =>{
         console.log(event.target.value);
-        ///////////setEnteredAmount(event.target.value);
-        setUserInput({
+        setEnteredAmount(event.target.value);
+       /* setUserInput({
             //++++++++++++++++spread below is needed as othewrwise amount and date would revert to their defualt values of '' 
             ...userInput, //++++++++++++++++++using spread opperator to set all keys of userInput with their values.
             enteredAmount: event.target.value //++++++++THEN overriding title key with new value
-        });
+        });*/
     }
 
     const dateChangeHandler = (event) =>{
         console.log(event.target.value);
-        ////////////////setEnteredDate(event.target.value);
-        setUserInput({
+        setEnteredDate(event.target.value);
+        /*setUserInput({
             //++++++++++++++++spread below is needed as othewrwise amount and date would revert to their defualt values of '' 
             ...userInput, //++++++++++++++++++using spread opperator to set all keys of userInput with their values.
             enteredDate: event.target.value //++++++++THEN overriding title key with new value
-        });
+        });*/
     }
 
     return (
