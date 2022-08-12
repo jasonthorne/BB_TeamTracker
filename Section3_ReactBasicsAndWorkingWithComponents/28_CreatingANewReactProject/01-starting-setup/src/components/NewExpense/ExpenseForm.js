@@ -27,7 +27,7 @@ const ExpenseForm = () =>{ //instead of function like in other examples (both ob
     //change listener for title label input +++REMEMBER: we just POINT at the function with the listener. dont execute it there :P
     const titleChangeHandler = (event) =>{ //EVENT object is passed to this automatically on change
         console.log(event.target.value); //get value of input entered +++++++
-       setEnteredTitle(event.target.value); //set enteredTitle var as value of entered input +++++
+        setEnteredTitle(event.target.value); //set enteredTitle var as value of entered input +++++
        
        //+++++++++++++++++SIMPLE WAY OF UPDATING VALUE WITH ONE SHARED STATE:
         /// setUserInput({
@@ -66,8 +66,24 @@ const ExpenseForm = () =>{ //instead of function like in other examples (both ob
         });*/
     }
 
+    //++++++++++++++++IF a btnm with type="submit" inside a form is clicked, the form itself will omit a submit event, which we can listen for:
+    //n <form onSubmit={name of some function to trigger on submit}
+
+    const submitHandler = (event) => {
+        event.preventDefault(); //prevent the default of this request being sent whenever button is clicked. Stopping page from reloading in response :) ++++++++++++++++++++
+        
+        //create object holding entered form data: (creating date object from date string)
+        const expenseData = {
+            title: enteredTitle,
+            amount: enteredAmount,
+            date: new Date(enteredDate)
+        };
+
+        console.log(expenseData);
+    };
+
     return (
-        <form>
+        <form onSubmit={submitHandler}> 
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <label>Title</label>
