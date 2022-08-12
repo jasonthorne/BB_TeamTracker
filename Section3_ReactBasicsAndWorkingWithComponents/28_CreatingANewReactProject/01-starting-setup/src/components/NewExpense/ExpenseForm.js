@@ -80,6 +80,11 @@ const ExpenseForm = () =>{ //instead of function like in other examples (both ob
         };
 
         console.log(expenseData);
+        //+++++++++++++++++++set fields back to empty: (This works because of value={enteredFieldVariable} on the field tags)
+        setEnteredTitle(''); //set entered title back to empty string. 
+        setEnteredAmount(''); //set amount title back to empty string. 
+        setEnteredDate(''); //set date title back to empty string. 
+
     };
 
     return (
@@ -87,15 +92,15 @@ const ExpenseForm = () =>{ //instead of function like in other examples (both ob
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <label>Title</label>
-                    <input type="text" onChange={titleChangeHandler} />
+                    <input type="text" onChange={titleChangeHandler} value={enteredTitle} />
                 </div>
                 <div className='new-expense__control'>
                     <label>Amount</label>
-                    <input type="number" min="0.01" step="0.01" onChange={amountChangeHandler}/>
+                    <input type="number" min="0.01" step="0.01" onChange={amountChangeHandler} value={enteredAmount} />
                 </div>
                 <div className='new-expense__control'>
                     <label>Date</label>
-                    <input type="date" min="2019-01-01" max="2022-12-31" onChange={dateChangeHandler}/>
+                    <input type="date" min="2019-01-01" max="2022-12-31" onChange={dateChangeHandler} value={enteredDate} />
                 </div>
             </div>
             <div className='new-expense__actions'>
