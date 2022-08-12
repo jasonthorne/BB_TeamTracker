@@ -80,7 +80,7 @@ const ExpenseForm = () =>{ //instead of function like in other examples (both ob
         };
 
         console.log(expenseData);
-        //+++++++++++++++++++set fields back to empty: (This works because of value={enteredFieldVariable} on the field tags)
+        //+++++++++++++++++set fields back to empty: (This works because of value={enteredFieldVariable} on the field tags)
         setEnteredTitle(''); //set entered title back to empty string. 
         setEnteredAmount(''); //set amount title back to empty string. 
         setEnteredDate(''); //set date title back to empty string. 
