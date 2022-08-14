@@ -7,7 +7,7 @@ const NewExpense = () =>{ //instead of function like in other examples (both obv
 
     /*+++++++++++++++IMPORTANT: Adding a new prop to our expenseForm WHOS VALUE IS A FUNCTION to be triggered whenever something happens inside of this component
     in this case whever the user saves the expense data. */
-    const onSaveExpenseDataHandler = (enteredExpenseData) =>{
+    const onSaveExpenseDataHandler = (enteredExpenseData)=>{
         //create expense data with copied in entered expense data, and an id:
         const expenseData = {
             ...enteredExpenseData,
@@ -16,7 +16,7 @@ const NewExpense = () =>{ //instead of function like in other examples (both obv
         console.log(expenseData);
     };
 
-    //sending onSaveExpenseDataHandler as a prop to expense form: 
+    //sending onSaveExpenseDataHandler (which is a FUNCTION) as a prop to expense form: 
     return (
         <div className='new-expense'>
             <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} /> 
