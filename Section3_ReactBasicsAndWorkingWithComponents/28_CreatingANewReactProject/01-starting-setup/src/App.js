@@ -20,15 +20,16 @@ const App = () => { // alternative function ++++++++++++ (arrow function)
   ];
 
 
-  const addExpenceHandler = (expense) =>{
+  const addExpenseHandler = (expense) =>{
     console.log("in app.js");
-    console.log(expenses);
+    console.log(expense);
   };
 
   //setting properties for Expenses component, using expenses array above: ++++++++
+  // setting onAddExpense property as the 'addExpenseHandler' function called 'onAddExpense'
   return (
     <div>
-      <NewExpense onAddExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses expenses={expenses} />
     </div>
   );

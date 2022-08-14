@@ -79,7 +79,7 @@ const ExpenseForm = (props) =>{ //instead of function like in other examples (bo
             date: new Date(enteredDate)
         };
 
-        console.log(expenseData);
+        ////////////console.log(expenseData);
 
         //++++++++++++++++++++++++++invoke function that was passed from NewExpense as a prop (onSaveExpenseDataHandler()):
         props.onSaveExpenseData(expenseData); //pass the generated expense data as an arg to the fucntion ezisting in NewExpense

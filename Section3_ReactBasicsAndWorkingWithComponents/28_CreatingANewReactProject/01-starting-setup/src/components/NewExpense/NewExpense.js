@@ -3,7 +3,7 @@ import './NewExpense.css'; //add stylesheet for this component's jsx
 
 import ExpenseForm from  './ExpenseForm'; //import expense form component
 
-const NewExpense = () =>{ //instead of function like in other examples (both obv work)
+const NewExpense = (props) =>{ //instead of function like in other examples (both obv work)
 
     /*+++++++++++++++IMPORTANT: Adding a new prop to our expenseForm WHOS VALUE IS A FUNCTION to be triggered whenever something happens inside of this component
     in this case whever the user saves the expense data. */
@@ -13,7 +13,8 @@ const NewExpense = () =>{ //instead of function like in other examples (both obv
             ...enteredExpenseData,
             id: Math.random().toString()
         };
-        console.log(expenseData);
+        props.onAddExpense(expenseData); //call method property 'onAddExpence', passing it expenseData
+
     };
 
     //sending onSaveExpenseDataHandler (which is a FUNCTION) as a prop to expense form: 
