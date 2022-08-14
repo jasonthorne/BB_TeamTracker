@@ -2,7 +2,7 @@
 import './ExpenseForm.css'; //add stylesheet for this component's jsx
 import React, {useState} from 'react'; // +++++ FOR STORING STATE OF INPUTTED VALUES INCASE COMPONENT IS EVER CALLED AGAIN 
 
-const ExpenseForm = () =>{ //instead of function like in other examples (both obv work)
+const ExpenseForm = (props) =>{ //instead of function like in other examples (both obv work)
 
     //==========USESTATES: ==========
     //useState for title:

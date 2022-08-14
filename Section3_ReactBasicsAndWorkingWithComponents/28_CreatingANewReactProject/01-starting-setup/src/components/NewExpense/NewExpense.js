@@ -5,11 +5,21 @@ import ExpenseForm from  './ExpenseForm'; //import expense form component
 
 const NewExpense = () =>{ //instead of function like in other examples (both obv work)
 
-    /*+++++++++++++++IMPORTANT: Adding a new prop to our expense form WHOS VALUE IS A FUNCTION to be triggered whenever something happens inside of this component
+    /*+++++++++++++++IMPORTANT: Adding a new prop to our expenseForm WHOS VALUE IS A FUNCTION to be triggered whenever something happens inside of this component
     in this case whever the user saves the expense data. */
+    const onSaveExpenseDataHandler = (enteredExpenseData) =>{
+        //create expense data with copied in entered expense data, and an id:
+        const expenseData = {
+            ...enteredExpenseData,
+            id: Math.random().toString()
+        };
+        console.log(expenseData);
+    };
+
+    //sending onSaveExpenseDataHandler as a prop to expense form: 
     return (
         <div className='new-expense'>
-            <ExpenseForm onSaveExpenseData />
+            <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} /> 
         </div>
     );
 };
