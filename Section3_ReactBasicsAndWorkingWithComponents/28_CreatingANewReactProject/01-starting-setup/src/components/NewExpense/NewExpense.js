@@ -13,7 +13,9 @@ const NewExpense = (props) =>{ //instead of function like in other examples (bot
             ...enteredExpenseData,
             id: Math.random().toString()
         };
-        props.onAddExpense(expenseData); //call method property 'onAddExpence', passing it expenseData
+
+        //call method property 'onAddExpence', passing it expenseData:
+        props.onAddExpense(expenseData);  //+++++++++++Passing expenseData to App.js through its passed props method, 'Lifts up' the state of that component
 
     };
 
