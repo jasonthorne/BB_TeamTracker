@@ -1,6 +1,14 @@
 
 import './ExpensesFilter.css';
 
+
+/*++++++++++++++++IMPORTANT:+++++++++++++
+
+This is a CONTROLLED component. As its parent component (Expenses) deals with its value and changes to its value
+These are mearley passed to it by props: selected={selectedYear} and  onFilterChange={filterChangeHandler}
+
+*/
+
 const ExpensesFilter = (props) => {
 
   const yearChangeHandler = (event) =>{ //handle change in year

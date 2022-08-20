@@ -1,4 +1,14 @@
 
+/*
+THis is a 'STATELESS', or 'presentational' or 'dumb' component
+because it doesnt have any internal state.
+It's just here to oujtput some data
+
+
+*/
+
+
+
 //imports:
 import React, {useState} from 'react'; //+++++++++++++++IMPORTANT FOR CHANGING STATE (inside component function) :P 
 import './ExpenseItem.css'; //add stylesheet for this component's jsx
@@ -28,20 +38,14 @@ function ExpenseItem(props){ //convention is to repeat the filename
         - var holding the current value
         - a function for changing the value
     */
-    const [title, setTitle] = useState(props.title); //making 2 varables from array returned from useState() +++++++++
-
-    const clickHandler = () =>{
-      setTitle('yo!'); //call setTitle to change value of title ++++++++
-    };
 
     return (
         <Card className='expense-item'>
             <ExpenseDate date={props.date} />
             <div className='expense-item__description'>
-                <h2>{title}</h2>
+                <h2>{props.title}</h2>
             </div>
             <div className='expense-item__price'>${props.amount}</div>
-            <button onClick={clickHandler}>Change Title</button>
         </Card>
     );
 } 
