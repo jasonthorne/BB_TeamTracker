@@ -19,14 +19,30 @@ function Expenses(props){
 
 
 
+    /*
+
+    for props.items (the array of expenses passed in app.js):
+    use built in array method (.map()) from standard js.
+    this provideds a new array, with the results of calling the provided function on every element in the original array.
+    
+    Here were mapping every expense item into an
+
+     <ExpenseItem title={props.expenses[0].title} amount={props.expenses[0].amount} date={props.expenses[0].date} />
+            <ExpenseItem title={props.expenses[1].title} amount={props.expenses[1].amount} date={props.expenses[1].date} />
+            <ExpenseItem title={props.expenses[2].title} amount={props.expenses[2].amount} date={props.expenses[2].date} />
+            <ExpenseItem title={props.expenses[3].title} amount={props.expenses[3].amount} date={props.expenses[3].date} />
+    */
 
     return (
         <Card className='expenses'>
             <ExpensesFilter selected={selectedYear} onFilterChange={filterChangeHandler}/>
-            <ExpenseItem title={props.expenses[0].title} amount={props.expenses[0].amount} date={props.expenses[0].date} />
-            <ExpenseItem title={props.expenses[1].title} amount={props.expenses[1].amount} date={props.expenses[1].date} />
-            <ExpenseItem title={props.expenses[2].title} amount={props.expenses[2].amount} date={props.expenses[2].date} />
-            <ExpenseItem title={props.expenses[3].title} amount={props.expenses[3].amount} date={props.expenses[3].date} />
+            {props.expenses.map((expense) => (
+                <ExpenseItem
+                    title={expense.title}
+                    amount={expense.amount}
+                    date={expense.date}
+                />
+            ))}
         </Card>
     );
 }
