@@ -10,8 +10,8 @@ const NewExpense = (props) =>{ //instead of function like in other examples (bot
     const onSaveExpenseDataHandler = (enteredExpenseData)=>{
         //create expense data with copied in entered expense data, and an id:
         const expenseData = {
-            ...enteredExpenseData,
-            id: Math.random().toString()
+            ...enteredExpenseData, //add expense data properties from passed object
+            id: Math.random().toString() //add an id
         };
 
         //call method property 'onAddExpence', passing it expenseData:
