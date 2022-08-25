@@ -10,7 +10,7 @@ It's just here to oujtput some data
 
 
 //imports:
-import React, {useState} from 'react'; //+++++++++++++++IMPORTANT FOR CHANGING STATE (inside component function) :P 
+//////import React, {useState} from 'react'; //+++++++++++++++IMPORTANT FOR CHANGING STATE (inside component function) :P 
 import './ExpenseItem.css'; //add stylesheet for this component's jsx
 import ExpenseDate from './ExpenseDate'; //import ExpenseDate component
 import Card from '../UI/Card'; //import Card component

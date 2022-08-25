@@ -34,6 +34,7 @@ function Expenses(props){
             <ExpensesFilter selected={selectedYear} onFilterChange={filterChangeHandler}/>
             {props.expenses.map((expense) => (
                 <ExpenseItem
+                    key={expense.id} //++++IMPORTANT - always add this when mapping out lists of items: This is a prop you can add to ANY component to id it - NEEDED for list items so react can be aware of which index the list item should reside when inserting or deleting items.
                     title={expense.title}
                     amount={expense.amount}
                     date={expense.date}
