@@ -85,7 +85,7 @@ const ExpenseForm = (props) =>{ //instead of function like in other examples (bo
         props.onSaveExpenseData(expenseData); //pass the generated expense data as an arg to the fucntion ezisting in NewExpense
 
 
-        //+++++++++++++++++set fields back to empty: (This works because of value={enteredFieldVariable} on the field tags)
+        //++++++++++++++++++set fields back to empty: (This works because of value={enteredFieldVariable} on the field tags)
         setEnteredTitle(''); //set entered title back to empty string. 
         setEnteredAmount(''); //set amount title back to empty string. 
         setEnteredDate(''); //set date title back to empty string. 
