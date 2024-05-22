@@ -32,5 +32,15 @@ npm start
 to assign styling to a tg:
 use className= NOT class=
 
+----------------
+
+react developer tools browser extension
+
+open dev tools:
+ctrl shift j
+
+---------------
+
+
 
 
