@@ -29,5 +29,8 @@ npm start
 
 -------------------
 
+to assign styling to a tg:
+use className= NOT class=
+
 
 
