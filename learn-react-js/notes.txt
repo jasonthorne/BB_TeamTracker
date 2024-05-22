@@ -1,0 +1,33 @@
+moviedux project repo:
+https://github.com/JannickLeismann/react-moviedux
+
+VS extensions:
+ESLint - shows errors while typing
+Prettier - code formatter
+
+setting toggle:
+file > pref > settings > search and tick 'format on save'
+
+--------------------
+
+create react app (in powershell - dont use bash :P)
+(check dependencies in vid 7)
+npx create-react-app [name of app]
+
+to update dependencies:
+- Delete node modules folder
+- Delete package.lock.json folder
+- then cd to project folder 
+- then in NEW powershell terminal:
+npm install
+- fix vulnerability issues if necessary
+
+-------------------
+
+start react app in local server:
+npm start
+
+-------------------
+
+
+
