@@ -16,6 +16,9 @@ export default function MoviesGrid(){
     setMovies(['movie 1','movie 2']) WONT work here, as this component keeps rendering, so this will keep being done!
     */
 
+    //create state for search:
+    const [searchTerm, setSearchTerm] = useState(""); //initialise with empty string
+
     useEffect(()=>{ //takes anono func as first arg
         //const testMovies = ['a', 'b', 'c']; //dummy movies
         //setMovies(testMovies); //set the state for movies
@@ -29,24 +32,16 @@ export default function MoviesGrid(){
     }, []); //sending empty array as 2nd arg as we dont want to provide any ibfo on when to repeat this effect (as we only want it working once)
     
     return(
-        <div className='movies-grid'>
-            {
-                movies.map(movie => (
-                    //add movie card with parameter of movie, and a unique id for targeting
-                    <MovieCard movie={movie} key={movie.id}></MovieCard> 
-
-                    //give div a unique key from movie's id property (needed):
-                    /*<div key={movie.id} className='movie-card'>
-                        <img src={`images/${movie.image}`} alt={movie.title}></img>
-                        <div className='movie-card-info'>
-                            <h3 className='movie-card-title'>{movie.title}</h3>
-                            <p className='movie-card-genre'>{movie.genre}</p>
-                            <p className='movie-card-rating'>{movie.rating}</p>
-                        </div>
-                    </div>*/
-
-                ))
-            }
+        <div>
+            <input type='text' placeholder='I be placeholder...' className='search-input'/>
+            <div className='movies-grid'>
+                {
+                    movies.map(movie => (
+                        //add movie card with parameter of movie, and a unique id for targeting
+                        <MovieCard movie={movie} key={movie.id}></MovieCard> 
+                    ))
+                }
+            </div>
         </div>
     );
 };
