@@ -31,12 +31,29 @@ export default function MoviesGrid(){
 
     }, []); //sending empty array as 2nd arg as we dont want to provide any ibfo on when to repeat this effect (as we only want it working once)
     
+    const handleSearchChange =(event)=>{
+        setSearchTerm(event.target.value); //set search term with input field value
+    };
+
+    //filter each movie where movie title includes search term
+    const filteredMovies = movies.filter(movie => 
+        movie.title.toLowerCase().includes(searchTerm.toLocaleLowerCase()) 
+    )
+
+
     return(
         <div>
-            <input type='text' placeholder='I be placeholder...' className='search-input'/>
+            <input 
+                type='text' 
+                placeholder='I be placeholder...' 
+                className='search-input'
+                value={searchTerm} //input value will be search term. 
+                onChange={handleSearchChange} //+++++++++IMPORTANT: whenever something new is added, change search term to that. this forces UI to get updated, because it's changing a state
+            />
             <div className='movies-grid'>
                 {
-                    movies.map(movie => (
+                    //movies.map(movie => ( -------------shows all movies
+                    filteredMovies.map(movie => (
                         //add movie card with parameter of movie, and a unique id for targeting
                         <MovieCard movie={movie} key={movie.id}></MovieCard> 
                     ))
