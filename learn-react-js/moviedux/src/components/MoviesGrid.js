@@ -19,6 +19,10 @@ export default function MoviesGrid(){
     //create state for search:
     const [searchTerm, setSearchTerm] = useState(""); //initialise with empty string
 
+    //create states for genre & rating:
+    const [genre, setGenre] = useState("All Genres");
+    const [rating, setRating] = useState("All");
+
     useEffect(()=>{ //takes anono func as first arg
         //const testMovies = ['a', 'b', 'c']; //dummy movies
         //setMovies(testMovies); //set the state for movies
@@ -43,6 +47,7 @@ export default function MoviesGrid(){
 
     return(
         <div>
+
             <input 
                 type='text' 
                 placeholder='I be placeholder...' 
@@ -50,6 +55,29 @@ export default function MoviesGrid(){
                 value={searchTerm} //input value will be search term. 
                 onChange={handleSearchChange} //+++++++++IMPORTANT: whenever something new is added, change search term to that. this forces UI to get updated, because it's changing a state
             />
+
+            <div className='filter-bar'>
+                <div className='filter-slot'>
+                    <label>Genre</label>
+                    <select className='filter-dropdown'>
+                        <option>All Genres</option>
+                        <option>Action</option>
+                        <option>Drama</option>
+                        <option>Fantasy</option>
+                        <option>Horror</option>
+                    </select>
+                </div>
+                <div className='filter-slot'>
+                    <label>Rating</label>
+                    <select className='filter-dropdown'>
+                        <option>All</option>
+                        <option>Good</option>
+                        <option>Okay</option>
+                        <option>Bad</option>
+                    </select>
+                </div>
+            </div>
+
             <div className='movies-grid'>
                 {
                     //movies.map(movie => ( -------------shows all movies
@@ -59,6 +87,7 @@ export default function MoviesGrid(){
                     ))
                 }
             </div>
+
         </div>
     );
 };
