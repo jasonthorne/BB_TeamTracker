@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import '../styles.css';
 import MovieCard from './MovieCard';
 
-export default function MoviesGrid(){
+export default function MoviesGrid({movies}){
 
     /*creating a state:
     'movies' is the variable 
     'setMovies' is method that updates movies (it's state)
     */
-    const [movies, setMovies] = useState([]); //initialising movies as empty array.
+    ////////const [movies, setMovies] = useState([]); //initialising movies as empty array.
 
     /*
     We have to use an effect to set the initial state of the movies:
@@ -23,7 +23,7 @@ export default function MoviesGrid(){
     const [genre, setGenre] = useState("All Genres");
     const [rating, setRating] = useState("All");
 
-    useEffect(()=>{ //takes anono func as first arg
+    /*useEffect(()=>{ //takes anono func as first arg
         //const testMovies = ['a', 'b', 'c']; //dummy movies
         //setMovies(testMovies); //set the state for movies
 
@@ -34,7 +34,8 @@ export default function MoviesGrid(){
         .then(jsonData => setMovies(jsonData)); //then returned json data is passed into setMovies() to set the state for movies
 
     }, []); //sending empty array as 2nd arg as we dont want to provide any ibfo on when to repeat this effect (as we only want it working once)
-    
+    */
+
     const handleGenreChange =(event)=>{
         setGenre(event.target.value); //set search term with input field value
     };

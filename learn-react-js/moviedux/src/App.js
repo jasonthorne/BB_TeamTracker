@@ -1,6 +1,7 @@
 
 import './App.css';
 import './styles.css';
+import React, {useState, useEffect} from 'react';
 
 //import components:
 import Header from './components/Header'; 
@@ -11,6 +12,20 @@ import Watchlist from './components/Watchlist';
 import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'; //import router ++++++++
 
 function App(){
+
+  //creating a movies state:
+  const [movies, setMovies] = useState([]); //initialising movies as empty array.
+
+  useEffect(()=>{ //takes anono func as first arg
+    //use fetch function to get data from url:
+    //path 'moveis.json' works here as this component is injected into index.html and movies.json lives there too
+    fetch('movies.json') //.then as this could take a while!
+    .then(response => response.json()) //response is what's returned from the fetch, which we then return as json data
+    .then(jsonData => setMovies(jsonData)); //then returned json data is passed into setMovies() to set the state for movies
+
+}, []); //sending empty array as 2nd arg as we dont want to provide any ibfo on when to repeat this effect (as we only want it working once)
+
+
   return(
     //'contrainer' class div below just sets a width for element within page
 
@@ -44,7 +59,7 @@ function App(){
           </nav>
 
           <Routes>
-            <Route path="/" element={<MoviesGrid/>}></Route>
+            <Route path="/" element={<MoviesGrid movies={movies}/>}></Route>
             <Route path="/watchlist" element={<Watchlist/>}></Route> 
           </Routes>
         </Router>
