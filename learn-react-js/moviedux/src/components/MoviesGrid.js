@@ -35,14 +35,53 @@ export default function MoviesGrid(){
 
     }, []); //sending empty array as 2nd arg as we dont want to provide any ibfo on when to repeat this effect (as we only want it working once)
     
+    const handleGenreChange =(event)=>{
+        setGenre(event.target.value); //set search term with input field value
+    };
+
+    const handleRatingChange =(event)=>{
+        setRating(event.target.value); //set search term with input field value
+    };
+
     const handleSearchChange =(event)=>{
         setSearchTerm(event.target.value); //set search term with input field value
     };
 
-    //filter each movie where movie title includes search term
+    //------------
+
+    const matchesGenre = (movie, genre) =>{
+        return genre === "All Genres" || movie.genre.toLocaleLowerCase() === genre.toLocaleLowerCase();
+    };
+
+    const matchesSearchTerm = (movie, searchTerm) =>{
+        return movie.title.toLowerCase().includes(searchTerm.toLocaleLowerCase());
+    };
+
+    const matchesRating = (movie, rating) =>{
+        switch(rating){
+            case 'All':
+                return true;
+            case 'Good':
+                return movie.rating >=8;
+            case 'Okay':
+                return movie.rating >=5 && movie.rating <8;
+            case 'Bad':
+                return movie.rating <5;
+            default:
+                return false;
+        }
+    };
+
+    //------------
+
+    //filter each movie where moviematches genre and then rating and then searchterm
     const filteredMovies = movies.filter(movie => 
-        movie.title.toLowerCase().includes(searchTerm.toLocaleLowerCase()) 
+        matchesGenre(movie, genre) &&
+        matchesRating(movie, rating) &&
+        matchesSearchTerm(movie, searchTerm)
     )
+
+    
 
 
     return(
@@ -59,7 +98,7 @@ export default function MoviesGrid(){
             <div className='filter-bar'>
                 <div className='filter-slot'>
                     <label>Genre</label>
-                    <select className='filter-dropdown'>
+                    <select className='filter-dropdown' value={genre} onChange={handleGenreChange}>
                         <option>All Genres</option>
                         <option>Action</option>
                         <option>Drama</option>
@@ -69,7 +108,7 @@ export default function MoviesGrid(){
                 </div>
                 <div className='filter-slot'>
                     <label>Rating</label>
-                    <select className='filter-dropdown'>
+                    <select className='filter-dropdown' value={rating} onChange={handleRatingChange}>
                         <option>All</option>
                         <option>Good</option>
                         <option>Okay</option>
