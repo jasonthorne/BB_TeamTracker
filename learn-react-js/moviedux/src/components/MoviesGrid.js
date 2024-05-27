@@ -81,9 +81,6 @@ export default function MoviesGrid(){
         matchesSearchTerm(movie, searchTerm)
     )
 
-    
-
-
     return(
         <div>
 

@@ -10,7 +10,7 @@ export default function MovieCard({movie}){ //Note the need for this to be in br
         event.target.src = 'images/default.jpg'; //set src to be default image
     };
 
-    const getRatingClass = (rating)=>{
+    const getRatingClass =(rating)=>{
 
         if (rating>=8){
             return 'rating-good';
