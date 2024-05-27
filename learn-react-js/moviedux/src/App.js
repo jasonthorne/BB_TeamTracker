@@ -16,6 +16,18 @@ function App(){
   //creating a movies state:
   const [movies, setMovies] = useState([]); //initialising movies as empty array.
 
+  //create watchlist ste:
+  const[watchlist, setWatchlist] = useState([]);
+
+  const toggleWatchlist =(movieId)=>{
+    setWatchlist(prevState => 
+      //if previous state includes movie id, then filter it out by just grabbing other ids,
+      //or if it doesnt include the id, then add it along with the other watchlist elements of previuos state
+      prevState.includes(movieId) ? prevState.filter(id => id !== movieId) : {...prevState, movieId}
+    )
+  }
+
+
   useEffect(()=>{ //takes anono func as first arg
     //use fetch function to get data from url:
     //path 'moveis.json' works here as this component is injected into index.html and movies.json lives there too
