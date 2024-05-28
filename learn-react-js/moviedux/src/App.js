@@ -20,11 +20,11 @@ function App(){
   const[watchlist, setWatchlist] = useState([]);
 
   const toggleWatchlist =(movieId)=>{
-    setWatchlist(prevState => 
+    setWatchlist((prev) => 
       //if previous state includes movie id, then filter it out by just grabbing other ids,
-      //or if it doesnt include the id, then add it along with the other watchlist elements of previuos state
-      prevState.includes(movieId) ? prevState.filter(id => id !== movieId) : {...prevState, movieId}
-    )
+      //or if it doesnt include the id, then add it along with the other watchlist elements of previuos state as new arrray for set method
+      prev.includes(movieId) ? prev.filter((id) => id !== movieId) : [...prev, movieId]
+    );
   };
 
 
@@ -74,8 +74,8 @@ function App(){
           </nav>
           
           <Routes>
-            <Route path="/" element={<MoviesGrid movies={movies} watchlist={watchlist} toggleWatchlist={toggleWatchlist}/>}></Route>
-            <Route path="/watchlist" element={<Watchlist movies={movies} watchlist={watchlist} toggleWatchlist={toggleWatchlist}/>}></Route> 
+            <Route path="/" element={<MoviesGrid watchlist={watchlist} movies={movies} toggleWatchlist={toggleWatchlist}/>}></Route>
+            <Route path="/watchlist" element={<Watchlist watchlist={watchlist} movies={movies} toggleWatchlist={toggleWatchlist}/>}></Route> 
           </Routes>
         </Router>
 
