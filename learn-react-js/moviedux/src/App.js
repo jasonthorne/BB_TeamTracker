@@ -25,7 +25,7 @@ function App(){
       //or if it doesnt include the id, then add it along with the other watchlist elements of previuos state
       prevState.includes(movieId) ? prevState.filter(id => id !== movieId) : {...prevState, movieId}
     )
-  }
+  };
 
 
   useEffect(()=>{ //takes anono func as first arg
