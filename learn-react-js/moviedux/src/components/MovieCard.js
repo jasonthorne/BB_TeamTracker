@@ -3,7 +3,7 @@ import '../styles.css';
 
 
 //<MovieCard movie={movie}></MovieCard> - creating a movie component add movie property, which is whats passed in below
-export default function MovieCard({movie}){ //Note the need for this to be in braces :P
+export default function MovieCard({movie, isWatchlisted, toggleWatchlist}){ //Note the need for this to be in braces :P
  
     //for handling triggeredd 'on error' events for images:
     const handleError = (event)=>{
@@ -11,7 +11,6 @@ export default function MovieCard({movie}){ //Note the need for this to be in br
     };
 
     const getRatingClass =(rating)=>{
-
         if (rating>=8){
             return 'rating-good';
         }else if(rating>=5){

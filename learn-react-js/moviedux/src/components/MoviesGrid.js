@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import '../styles.css';
 import MovieCard from './MovieCard';
 
-export default function MoviesGrid({movies}){
+export default function MoviesGrid({movies, watchlist, toggleWatchlist}){ //args passed as props where component is defined (in App.js)
 
     /*creating a state:
     'movies' is the variable 
@@ -120,7 +120,8 @@ export default function MoviesGrid({movies}){
                     //movies.map(movie => ( -------------shows all movies
                     filteredMovies.map(movie => (
                         //add movie card with parameter of movie, and a unique id for targeting
-                        <MovieCard movie={movie} key={movie.id}></MovieCard> 
+                        // remember .includes() returns boolean of if arg is included
+                        <MovieCard movie={movie} isWatchlisted={watchlist.includes(movie.id)} toggleWatchlist={toggleWatchlist} key={movie.id}></MovieCard> 
                     ))
                 }
             </div>

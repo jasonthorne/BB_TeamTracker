@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import MoviesGrid from './components/MoviesGrid';
 import Watchlist from './components/Watchlist';
 //router contains routes (a collection of single routes), link is like an A tag
-import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'; //import router ++++++++
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; //import router ++++++++
 
 function App(){
 
@@ -52,6 +52,9 @@ function App(){
     means: on home page, show MoviesGrid component.
     + Link tag to="" links user to the route path with the given component
 
+    + both components need to know about movies and watchlist states so are passed them as props
+    and also nedd access to the toggle function, so are passed that too
+
     */
     <div className="App">
 
@@ -69,10 +72,10 @@ function App(){
               </li>
             </ul>
           </nav>
-
+          
           <Routes>
-            <Route path="/" element={<MoviesGrid movies={movies}/>}></Route>
-            <Route path="/watchlist" element={<Watchlist/>}></Route> 
+            <Route path="/" element={<MoviesGrid movies={movies} watchlist={watchlist} toggleWatchlist={toggleWatchlist}/>}></Route>
+            <Route path="/watchlist" element={<Watchlist movies={movies} watchlist={watchlist} toggleWatchlist={toggleWatchlist}/>}></Route> 
           </Routes>
         </Router>
 
