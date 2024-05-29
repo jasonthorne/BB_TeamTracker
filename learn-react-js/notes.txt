@@ -62,3 +62,8 @@ create react app (in powershell - dont use bash :P)
 (check dependencies in vid 7)
 npx create-react-app [name of app]
 
+Open dev console:
+ctrl + shift + J
+
+
+

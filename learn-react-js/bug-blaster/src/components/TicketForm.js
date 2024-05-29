@@ -45,6 +45,26 @@ export default function TicketForm(){
                     onChange={event => setDescription(event.target.value)}
                 ></textarea>
             </div>
+            <fieldset className='priority-fieldset'>
+                <legend>Priority</legend>
+                {
+                    //decontructing the object enty into labl & value (key/value), and returning label tag
+                    //checked={priority === value} - if priority is same as 
+                    Object.entries(priorityLabels).map(([label, value]) => (
+                        <label key={value} className='priority-label'>
+                            <input 
+                                type='radio' 
+                                value={value}
+                                checked={priority === value}
+                                className='priority-input'
+                                onChange={event => setPriority(event.target.value)}
+                            ></input>
+                            {label} 
+                        </label>
+                    ))
+                }
+            </fieldset>
+            <button type='submit' className='buton'>Submit</button>
         </form>
     );
 };
