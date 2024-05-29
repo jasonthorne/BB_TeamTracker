@@ -1,3 +1,5 @@
+MOVIE DUX:
+
 moviedux project repo:
 https://github.com/JannickLeismann/react-moviedux
 
@@ -48,4 +50,15 @@ npm i react-router-dom@6.22.3
 
 
 
+========================================================================================================
+
+BUG BLASTER:
+
+bug blaster project repo:
+https://github.com/JannickLeismann/react-bug-blaster
+
+
+create react app (in powershell - dont use bash :P)
+(check dependencies in vid 7)
+npx create-react-app [name of app]
 
