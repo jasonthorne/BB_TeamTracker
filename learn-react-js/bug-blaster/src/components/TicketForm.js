@@ -21,7 +21,15 @@ export default function TicketForm(){
 
     const handleSubmit =(event)=>{
         //below prevents the entire page from being reloaded on form submit: ++++++++++
-        event.preventDefault(); 
+        event.preventDefault();
+
+        const ticketData = {
+            id: new Date().toISOString(), //nice easy to read id, associated with current date/time
+            title, //this will always be the value of the state (no need define key/value pair)
+            description,
+            priority
+        };
+
         clearForm(); //clear form
     };
 
