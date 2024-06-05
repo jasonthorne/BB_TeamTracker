@@ -8,7 +8,13 @@ export default function ticketReducer(state, action){
     
     switch(action.type){
         case "ADD_TICKET":
-            return{}
+            //return whats in the current state + new tickets made of old + the action payload (which includes the logic for makeing a new ticket, and terefore adds one - I think!)
+            return{...state, tickets: [...state.tickets, action.payload]} 
+        case "UPDATE_TICKET":
+            return {
+                ...state, //copy over state to create a new state (as above too)
+                tickets: state.tickets.map
+            }
         default:
             return state; //if nothing is true, then just return the current state
     }

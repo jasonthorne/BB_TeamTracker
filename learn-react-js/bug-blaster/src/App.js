@@ -5,6 +5,11 @@ import './styles.css';
 import TicketForm from './components/TicketForm';
 
 function App() {
+
+  //initial state consists of just empty tickets:
+  const initialState = {tickets: [], };
+
+
   return (
     <div className="App">
       <div className='container'>
