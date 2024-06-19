@@ -13,7 +13,18 @@ export default function ticketReducer(state, action){
         case "UPDATE_TICKET":
             return {
                 ...state, //copy over state to create a new state (as above too)
-                tickets: state.tickets.map
+                tickets: state.tickets.map(ticket =>
+                    /*if we find a ticket with id that mateches our payload id,
+                    then return the payload, else return the ticket
+                    */
+                    ticket.id === action.payload.id? action.payload: ticket
+                )
+            }
+        case "DELETE_TICKET":
+            return {
+                ...state, //return properties of state
+                //return tickets, where ticket id != payload id (i.e all OTHER tickets)
+                tickets:  state.ticket.filter(ticket => ticket.id !== action.payload.id)
             }
         default:
             return state; //if nothing is true, then just return the current state
