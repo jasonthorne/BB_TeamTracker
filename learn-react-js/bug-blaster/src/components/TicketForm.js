@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function TicketForm(){
+export default function TicketForm({dispatch}){
     
     const priorityLabels = {
         1: 'Low',
@@ -29,6 +29,12 @@ export default function TicketForm(){
             description,
             priority
         };
+
+        //call dispatch function of useReducer (passed into ticketform in App.js)
+        dispatch({
+            type: "ADD_TICKET",
+            payload: ticketData
+        });
 
         clearForm(); //clear form
     };
