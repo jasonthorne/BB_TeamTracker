@@ -23,11 +23,11 @@ function App() {
         <h1>Bug Blaster</h1>
         <TicketForm dispatch = {dispatch}></TicketForm>
 
-        {
-          state.tickets.
+        { 
+          //+++++++++++++++++
+          //if we have tickets, THEN (this is used here asa THEN not an AND) show h2 tags:
+          state.tickets.length>0 && (<h2>All Tickets</h2>)
         }
-        <h2>All Tickets</h2>
-
 
       </div>
     </div>
