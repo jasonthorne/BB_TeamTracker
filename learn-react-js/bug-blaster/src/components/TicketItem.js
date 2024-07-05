@@ -1,14 +1,14 @@
 import React from 'react';
 
-export default function TicketItem({ticket, dispach}){
+export default function TicketItem({ticket, dispatch}){
  
     //create obj with props. = make it equal to passed ticket:
     const {id, title, description, priority} = ticket;
 
     const priorityClass = {
-        1: "priority-low",
-        2: "priority-medium",
-        3: "priority-high"
+        1: "low",
+        2: "medium",
+        3: "high"
     };
 
     //priority class is whatever number is in ticket.priority gets text priorityClass ++++

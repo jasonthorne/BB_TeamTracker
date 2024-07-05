@@ -25,8 +25,13 @@ function App() {
 
         { 
           //+++++++++++++++++
-          //if we have tickets, THEN (this is used here asa THEN not an AND) show h2 tags:
-          state.tickets.length>0 && (<h2>All Tickets</h2>)
+          //if we have tickets, THEN (this is used here asa THEN not an AND) show content in brackets:
+          state.tickets.length>0 && (
+            <div className='results'>
+              <h2>All Tickets</h2>
+              <TicketList tickets={state.tickets} dispatch={dispatch}></TicketList>
+            </div>
+          )
         }
 
       </div>
