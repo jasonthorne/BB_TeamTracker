@@ -24,7 +24,7 @@ export default function ticketReducer(state, action){
             return {
                 ...state, //return properties of state
                 //return tickets, where ticket id != payload id (i.e all OTHER tickets)
-                tickets:  state.ticket.filter(ticket => ticket.id !== action.payload.id)
+                tickets:  state.tickets.filter(ticket => ticket.id !== action.payload.id)
             }
         default:
             return state; //if nothing is true, then just return the current state
