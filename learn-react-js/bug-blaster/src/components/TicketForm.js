@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function TicketForm({dispatch}){
+export default function TicketForm({dispatch, editingTicket}){
     
     const priorityLabels = {
         1: 'Low',

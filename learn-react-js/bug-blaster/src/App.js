@@ -9,19 +9,20 @@ import TicketList from './components/TicketList';
 
 function App() {
 
-  //initial state consists of just empty tickets:
-  const initialState = {tickets: [] };
+  //initial state consists of just empty tickets, and a property for editing tickets:
+  const initialState = {tickets: [], edititngTicket: null };
 
   //register a reducer using an initial state  (obj with tiockets array) and our ticker teducer
   const [state, dispatch] = useReducer(ticketReducer, initialState);
 
   //ticketform is given a dispatch function equal to the dispatch fucntion defined in userReducer 
+  //alos passed 'editingTicket' from state (defined in initialState)
   return (
     <div className="App">
       <div className='container'>
 
         <h1>Bug Blaster</h1>
-        <TicketForm dispatch = {dispatch}></TicketForm>
+        <TicketForm dispatch = {dispatch} edititngTicket={state.edititngTicket}></TicketForm>
 
         { 
           //+++++++++++++++++
